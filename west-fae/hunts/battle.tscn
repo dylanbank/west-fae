@@ -1,0 +1,53 @@
+[gd_scene format=3 uid="uid://nwculwc1d4n7"]
+
+[ext_resource type="PackedScene" uid="uid://b8kbvctyxdb25" path="res://hunts/battle_group/battle_group.tscn" id="1_h3v6m"]
+[ext_resource type="PackedScene" uid="uid://d131vrvvloyu0" path="res://characters/hunters/Harry.tscn" id="2_hlv50"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_6sj1v"]
+size = Vector3(20, 1, 20)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6sj1v"]
+size = Vector3(20, 1, 20)
+
+[node name="Battle" type="Node3D" unique_id=1382295604]
+
+[node name="BattleGroup" parent="." unique_id=1305349365 instance=ExtResource("1_h3v6m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0.43, 3.8021507)
+group_area_size = Vector2(1.5, 2.5)
+character_tilt = 30.0
+
+[node name="Harry4" parent="BattleGroup" unique_id=859029265 instance=ExtResource("2_hlv50")]
+
+[node name="Harry3" parent="BattleGroup" unique_id=949073284 instance=ExtResource("2_hlv50")]
+
+[node name="Harry2" parent="BattleGroup" unique_id=1058383591 instance=ExtResource("2_hlv50")]
+
+[node name="Harry" parent="BattleGroup" unique_id=2093862954 instance=ExtResource("2_hlv50")]
+
+[node name="BattleGroup2" parent="." unique_id=338971663 instance=ExtResource("1_h3v6m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0.43, 0)
+group_area_size = Vector2(1.5, 2.5)
+character_tilt = -30.0
+enemies = true
+
+[node name="Harry4" parent="BattleGroup2" unique_id=1892091333 instance=ExtResource("2_hlv50")]
+
+[node name="Harry3" parent="BattleGroup2" unique_id=901534175 instance=ExtResource("2_hlv50")]
+
+[node name="Harry2" parent="BattleGroup2" unique_id=1703393059 instance=ExtResource("2_hlv50")]
+
+[node name="Harry" parent="BattleGroup2" unique_id=1515684130 instance=ExtResource("2_hlv50")]
+
+[node name="Floor" type="StaticBody3D" parent="." unique_id=1330066932]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Floor" unique_id=1796795815]
+visible = false
+mesh = SubResource("BoxMesh_6sj1v")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor" unique_id=1382417655]
+shape = SubResource("BoxShape3D_6sj1v")
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1979764481]
+transform = Transform3D(1, 0, 0, 0, 0.97951615, 0.20136568, 0, -0.20136568, 0.97951615, -0.592, 1.483, 7.3)
+fov = 90.0

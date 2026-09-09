@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://d131vrvvloyu0"]
+
+[ext_resource type="Script" uid="uid://damkuxlxp545e" path="res://characters/hunters/hunter.gd" id="1_vpyd6"]
+[ext_resource type="Texture2D" uid="uid://chnlhq6y21n4n" path="res://icon.svg" id="2_2igic"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6sj1v"]
+
+[node name="Harry" type="CharacterBody3D" unique_id=859029265]
+script = ExtResource("1_vpyd6")
+metadata/_custom_type_script = "uid://damkuxlxp545e"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1654897490]
+shape = SubResource("BoxShape3D_6sj1v")
+
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=1770655122]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.14009047, 0)
+texture = ExtResource("2_2igic")

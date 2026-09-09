@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://b8kbvctyxdb25"]
+
+[ext_resource type="Script" uid="uid://b0tilkchik71f" path="res://hunts/battle_group/battle_group.gd" id="1_vq4ah"]
+
+[node name="BattleGroup" type="Node3D" unique_id=1305349365]
+script = ExtResource("1_vq4ah")
+group_area_size = Vector2(8, 4)
