@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="HunterResource" format=3 uid="uid://dsdpwx53xa1cr"]
+
+[ext_resource type="Script" uid="uid://cqta4g038q3r0" path="res://characters/hunters/hunter_res.gd" id="1_y7djs"]
+[ext_resource type="Texture2D" uid="uid://chnlhq6y21n4n" path="res://icon.svg" id="2_gi4ot"]
+
+[resource]
+script = ExtResource("1_y7djs")
+name = "Harry"
+sprite = ExtResource("2_gi4ot")
+base_health = 30.0
+metadata/_custom_type_script = "uid://cqta4g038q3r0"
