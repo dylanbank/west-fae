@@ -1,11 +1,23 @@
 [gd_resource type="Resource" script_class="HunterResource" format=3 uid="uid://dsdpwx53xa1cr"]
 
+[ext_resource type="PackedScene" uid="uid://d131vrvvloyu0" path="res://characters/hunters/hunter.tscn" id="1_33vjt"]
 [ext_resource type="Script" uid="uid://cqta4g038q3r0" path="res://characters/hunters/hunter_res.gd" id="1_y7djs"]
 [ext_resource type="Texture2D" uid="uid://chnlhq6y21n4n" path="res://icon.svg" id="2_gi4ot"]
+[ext_resource type="Script" uid="uid://bs6pyqomfpqvv" path="res://characters/abilities/base_ability_res.gd" id="3_fkbln"]
+[ext_resource type="Script" uid="uid://dhm25anvaf4to" path="res://characters/items/base_item_res.gd" id="4_a4ghl"]
 
 [resource]
 script = ExtResource("1_y7djs")
 name = "Harry"
-sprite = ExtResource("2_gi4ot")
+idle_sprite = ExtResource("2_gi4ot")
+hit_sprite = ExtResource("2_gi4ot")
+dead_sprite = ExtResource("2_gi4ot")
+character_node = ExtResource("1_33vjt")
 base_health = 30.0
+current_health = 30.0
+strength = 4.0
+dexterity = 4.0
+constitution = 5.0
+intelligence = 5.0
+wisdom = 5.0
 metadata/_custom_type_script = "uid://cqta4g038q3r0"

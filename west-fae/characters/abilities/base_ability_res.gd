@@ -2,6 +2,7 @@ extends Resource
 class_name BaseAbilityResource
 
 @export var name : String
+@export var descr : String
 @export var icon : Texture2D
 @export_enum("ClassStaple", "ClassOption", "AnyClass") var ability_slot : String
 @export_enum("Gunslinger") var ability_class : String

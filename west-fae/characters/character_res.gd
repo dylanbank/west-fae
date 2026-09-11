@@ -2,9 +2,12 @@ extends Resource
 class_name CharacterResource
 
 @export var name : String
-@export var sprite : Texture2D
+@export var idle_sprite : Texture2D
+@export var hit_sprite : Texture2D
+@export var dead_sprite : Texture2D
 @export var character_node : PackedScene
 @export var base_health : float
+@export var current_health : float
 
 @export var strength : float
 @export var dexterity : float
@@ -16,6 +19,17 @@ class_name CharacterResource
 @export var equipped_abilities : Array[BaseAbilityResource]
 @export var equipped_weapon : WeaponResource
 @export var equipped_items : Array[BaseItemResource]
+
+@export var dead : bool = false
+
+func take_damage(dmg : float) -> void:
+	current_health -= dmg
+	# switch sprite to hit sprite for 0.5 - 1 second
+	# maybe have a sprite animation queue within this resource
+	if current_health <= 0:
+		current_health = 0
+		dead = true
+	
 
 func stats_after_calc() -> void:
 	#var new_str : float = 0

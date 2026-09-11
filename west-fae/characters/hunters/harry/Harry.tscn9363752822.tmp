@@ -5,7 +5,7 @@
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_6sj1v"]
 
-[node name="Harry" type="CharacterBody3D" unique_id=859029265]
+[node name="Hunter" type="CharacterBody3D" unique_id=859029265]
 script = ExtResource("1_vpyd6")
 metadata/_custom_type_script = "uid://damkuxlxp545e"
 
