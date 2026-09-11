@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="HunterResource" format=3 uid="uid://ccrhiw16mb8d0"]
+
+[ext_resource type="Script" uid="uid://bs6pyqomfpqvv" path="res://characters/abilities/base_ability_res.gd" id="1_1fvxf"]
+[ext_resource type="Script" uid="uid://cqta4g038q3r0" path="res://characters/hunters/hunter_res.gd" id="2_6s42l"]
+[ext_resource type="PackedScene" uid="uid://d131vrvvloyu0" path="res://characters/hunters/harry/Harry.tscn" id="2_ygxi5"]
+[ext_resource type="Texture2D" uid="uid://chnlhq6y21n4n" path="res://icon.svg" id="4_u7772"]
+
+[resource]
+script = ExtResource("2_6s42l")
+name = "Mark"
+sprite = ExtResource("4_u7772")
+character_node = ExtResource("2_ygxi5")
+base_health = 30.0
+base_damage = 30.0
+strength = 10.0
+dexterity = 2.0
+constitution = 3.0
+intelligence = 5.0
+wisdom = 1.0
+charisma = 4.0
+weapon = null
+metadata/_custom_type_script = "uid://cqta4g038q3r0"

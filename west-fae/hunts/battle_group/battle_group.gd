@@ -10,17 +10,8 @@ var character_group : Array[WFCharacter]
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	#var temp : Array[WFCharacter]
 	character_group.assign(self.get_children())
-	print(enemies)
-	#var lowest_range : int = 5
-	#var char_to_add : WFCharacter
-	#var char_to_add_i : int = 999
-	#while temp.size() > 0:
-		#for i : int in temp.size():
-			#if temp[i].range < lowest_range:
-				#lowest_range = temp[i].range
-	
+
 	if character_group.size() > 0:
 		for character : WFCharacter in character_group:
 			character.rotate_y(deg_to_rad(character_tilt))
@@ -36,7 +27,6 @@ func _ready() -> void:
 					x_direction = i
 					z_direction = standing_slots-i-1
 					
-					
 				var x_offset : float = 0.0
 				if(group_area_size.x != 0):
 					x_offset = (x_increment*x_direction)-(group_area_size.x/2)
@@ -45,10 +35,6 @@ func _ready() -> void:
 				if(group_area_size.y != 0):
 					z_offset = (z_increment*z_direction)-(group_area_size.y/2)
 				
-				# (1 * 0 - 1.5) = -1.5
-				# (1 * 1 - 1.5) = -0.5
-				# (1 * 2 - 1.5) = 0.5
-				# (1 * 3 - 1.5) = 1.5
 				character_group[i].position = Vector3(x_offset, 0, z_offset)
 				print(character_group[i].position)
 	
