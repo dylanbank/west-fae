@@ -1,10 +1,11 @@
 [gd_scene format=3 uid="uid://nwculwc1d4n7"]
 
-[ext_resource type="Script" uid="uid://b8wypto2gwd30" path="res://hunts/battle_manager.gd" id="1_hlv50"]
-[ext_resource type="Script" uid="uid://cqta4g038q3r0" path="res://characters/hunters/hunter_res.gd" id="2_hlv50"]
-[ext_resource type="Resource" uid="uid://dsdpwx53xa1cr" path="res://characters/hunters/harry/harry.tres" id="3_pchuo"]
-[ext_resource type="Script" uid="uid://cg340kvj3ltnb" path="res://characters/character_res.gd" id="4_p1r07"]
-[ext_resource type="Resource" uid="uid://ccrhiw16mb8d0" path="res://characters/hunters/mark/mark.tres" id="5_oibe4"]
+[ext_resource type="Script" uid="uid://b8wypto2gwd30" path="res://hunts/battles/battle_manager.gd" id="1_7r4xy"]
+[ext_resource type="Script" uid="uid://cqta4g038q3r0" path="res://characters/hunters/hunter_res.gd" id="2_u2f2v"]
+[ext_resource type="Resource" uid="uid://dsdpwx53xa1cr" path="res://characters/hunters/harry/harry.tres" id="3_62ji6"]
+[ext_resource type="Script" uid="uid://cg340kvj3ltnb" path="res://characters/character_res.gd" id="4_4jpop"]
+[ext_resource type="Resource" uid="uid://ccrhiw16mb8d0" path="res://characters/hunters/mark/mark.tres" id="5_5ri0k"]
+[ext_resource type="Script" uid="uid://c5rs0n0u88b2t" path="res://hunts/battles/code_blocks/initialize_characters.gd" id="6_ohvvp"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_6sj1v"]
 size = Vector3(20, 1, 20)
@@ -14,12 +15,16 @@ size = Vector3(20, 1, 20)
 
 [node name="Battle" type="Node3D" unique_id=1382295604]
 
-[node name="BattleManager" type="Node" parent="." unique_id=753362522 node_paths=PackedStringArray("hunter_p_mats", "enemy_p_mats")]
-script = ExtResource("1_hlv50")
-hunters = Array[ExtResource("2_hlv50")]([ExtResource("3_pchuo"), ExtResource("3_pchuo"), ExtResource("3_pchuo"), ExtResource("3_pchuo")])
-enemies = Array[ExtResource("4_p1r07")]([ExtResource("5_oibe4"), ExtResource("5_oibe4"), ExtResource("5_oibe4"), ExtResource("5_oibe4")])
-hunter_p_mats = [NodePath("../HunterPlacements/HunterMat1"), NodePath("../HunterPlacements/HunterMat2"), NodePath("../HunterPlacements/HunterMat3"), NodePath("../HunterPlacements/HunterMat4")]
-enemy_p_mats = [NodePath("../EnemyPlacements/EnemyMat1"), NodePath("../EnemyPlacements/EnemyMat2"), NodePath("../EnemyPlacements/EnemyMat3"), NodePath("../EnemyPlacements/EnemyMat4")]
+[node name="BattleManager" type="Node" parent="." unique_id=753362522 node_paths=PackedStringArray("initialize_characters")]
+script = ExtResource("1_7r4xy")
+hunters = Array[ExtResource("2_u2f2v")]([ExtResource("3_62ji6"), ExtResource("3_62ji6"), ExtResource("3_62ji6"), ExtResource("3_62ji6")])
+enemies = Array[ExtResource("4_4jpop")]([ExtResource("5_5ri0k"), ExtResource("5_5ri0k"), ExtResource("5_5ri0k"), ExtResource("5_5ri0k")])
+initialize_characters = NodePath("InitializeCharacters")
+
+[node name="InitializeCharacters" type="Node" parent="BattleManager" unique_id=38291079 node_paths=PackedStringArray("hunter_p_mats", "enemy_p_mats")]
+script = ExtResource("6_ohvvp")
+hunter_p_mats = [NodePath("../../HunterPlacements/HunterMat1"), NodePath("../../HunterPlacements/HunterMat2"), NodePath("../../HunterPlacements/HunterMat3"), NodePath("../../HunterPlacements/HunterMat4")]
+enemy_p_mats = [NodePath("../../EnemyPlacements/EnemyMat1"), NodePath("../../EnemyPlacements/EnemyMat2"), NodePath("../../EnemyPlacements/EnemyMat3"), NodePath("../../EnemyPlacements/EnemyMat4")]
 
 [node name="CameraPositions" type="Node3D" parent="." unique_id=1778099040]
 
@@ -56,6 +61,7 @@ transform = Transform3D(0.9659258, 0, -0.25881904, 0, 1, 0, 0.25881904, 0, 0.965
 [node name="Floor" type="StaticBody3D" parent="." unique_id=1330066932]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Floor" unique_id=1796795815]
+visible = false
 mesh = SubResource("BoxMesh_6sj1v")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Floor" unique_id=1382417655]
