@@ -8,6 +8,14 @@ class_name Character
 @onready var timer: Timer = $Timer
 @onready var sprite_3d: Sprite3D = $Sprite3D
 
+var focused : bool = false
+
+func focus_toggle() -> void:
+	focused = !focused
+	if focused:
+		print("focus")
+	else:
+		print("unfocus")
 func calc_hit_time(dmg_amt : float) -> float:
 	var perc_of_health : float = dmg_amt / character_res.current_health
 	return perc_of_health * hit_time_scale
