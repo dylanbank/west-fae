@@ -1,25 +1,30 @@
-extends Node
+extends Node3D
 class_name FocusCamera
 
 @export var camera : Camera3D
 @export var init_position : Vector3
 @export var position_offset : Vector3
-@export var y_angle_scale : float
+@export var init_y_angle : float
+@export var y_angle : float
 @export var lerp_weight : float
 
-func change_transform(focus_char_pos : Vector3, char_order : int) -> void:
-	print("change_transform")
-	print(focus_char_pos)
-	print(char_order)
-	print(position_offset)
+
+var new_cam_pos : Vector3
+var new_cam_rot : float
+
+func change_transform(focus_char_pos : Vector3, char_order : int, return_to_init_pos : bool) -> void:
 	
-	if(focus_char_pos):
-		var new_position : Vector3 = focus_char_pos + position_offset
-		var new_y_rotation : float = (y_angle_scale * char_order) - (4.0 * y_angle_scale)
-		camera.position = new_position
-		camera.rotation_degrees.y = new_y_rotation
-		#camera.position.move_toward(new_position, lerp_weight)
-		#lerp(camera.rotation_degrees.y, new_y_rotation, lerp_weight)
+	if(!return_to_init_pos):
+		new_cam_pos = focus_char_pos + position_offset
+		new_cam_rot = y_angle
 	else:
-		camera.position = init_position
-		camera.rotation_degrees.y = 0
+		new_cam_pos = init_position
+		new_cam_rot = init_y_angle
+
+func _process(delta: float) -> void:
+	camera.position = lerp(camera.position, new_cam_pos, lerp_weight * delta)
+	camera.rotation_degrees.y = lerp(camera.rotation_degrees.y, new_cam_rot, lerp_weight * delta)
+	
+func _ready() -> void:
+	new_cam_pos = init_position
+	new_cam_rot = init_y_angle

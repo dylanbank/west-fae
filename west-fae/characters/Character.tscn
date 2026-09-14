@@ -7,6 +7,8 @@
 
 [node name="Character" type="CharacterBody3D" unique_id=1785240785]
 script = ExtResource("1_cqlfc")
+focus_pos_offset = Vector3(0.3, 0, 0)
+focus_lerp = 4.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1599146581]
 shape = SubResource("BoxShape3D_la1yr")

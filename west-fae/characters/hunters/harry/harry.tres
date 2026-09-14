@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="CharacterResource" format=3 uid="uid://dh3onvcktfeuu"]
 
-[ext_resource type="PackedScene" uid="uid://d131vrvvloyu0" path="res://characters/hunters/hunter.tscn" id="1_33vjt"]
+[ext_resource type="PackedScene" uid="uid://iahqrc7o1224" path="res://characters/Character.tscn" id="1_33vjt"]
 [ext_resource type="Texture2D" uid="uid://chnlhq6y21n4n" path="res://icon.svg" id="2_gi4ot"]
 [ext_resource type="Script" uid="uid://cg340kvj3ltnb" path="res://characters/character_res.gd" id="3_1j5j0"]
 [ext_resource type="Script" uid="uid://bs6pyqomfpqvv" path="res://characters/abilities/base_ability_res.gd" id="3_fkbln"]

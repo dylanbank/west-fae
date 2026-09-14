@@ -4,6 +4,8 @@ class_name Character
 @export var character_res = CharacterResource
 @export var hit_time_scale : float = 2.0
 @export var hit_distance_scale : float = 2.0
+@export var focus_pos_offset : Vector3
+@export var focus_lerp : float
 
 @onready var timer: Timer = $Timer
 @onready var sprite_3d: Sprite3D = $Sprite3D
@@ -11,6 +13,7 @@ class_name Character
 var focused : bool = false
 
 func focus_toggle() -> void:
+	await get_tree().create_timer(0.25).timeout
 	focused = !focused
 	if focused:
 		print("focus")
@@ -39,3 +42,9 @@ func _on_timer_timeout() -> void:
 
 func _ready() -> void:
 	sprite_3d.texture = character_res.idle_sprite
+
+func _process(delta: float) -> void:
+	if(focused):
+		self.position = lerp(self.position, focus_pos_offset, focus_lerp * delta)
+	else:
+		self.position = lerp(self.position, Vector3(0,0,0), focus_lerp * delta)
