@@ -12,7 +12,7 @@ class_name FocusCamera
 var new_cam_pos : Vector3
 var new_cam_rot : float
 
-func change_transform(focus_char_pos : Vector3, char_order : int, return_to_init_pos : bool) -> void:
+func change_transform(focus_char_pos : Vector3, return_to_init_pos : bool) -> void:
 	
 	if(!return_to_init_pos):
 		new_cam_pos = focus_char_pos + position_offset
