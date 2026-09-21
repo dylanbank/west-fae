@@ -2,12 +2,19 @@
 
 [ext_resource type="Script" uid="uid://b8wypto2gwd30" path="res://hunts/battles/battle_manager.gd" id="1_7r4xy"]
 [ext_resource type="Resource" uid="uid://dh3onvcktfeuu" path="res://characters/hunters/harry/harry.tres" id="3_62ji6"]
+[ext_resource type="Resource" uid="uid://d2r873w6sn0cb" path="res://characters/hunters/brindan/brindan.tres" id="4_3y2ad"]
 [ext_resource type="Script" uid="uid://cg340kvj3ltnb" path="res://characters/character_res.gd" id="4_4jpop"]
 [ext_resource type="Texture2D" uid="uid://chnlhq6y21n4n" path="res://icon.svg" id="4_5ri0k"]
-[ext_resource type="Resource" uid="uid://cx7se47a513dh" path="res://characters/hunters/mark/mark.tres" id="4_ohvvp"]
+[ext_resource type="Resource" uid="uid://cx7se47a513dh" path="res://characters/enemies/mark/mark.tres" id="4_ohvvp"]
+[ext_resource type="Resource" uid="uid://ctgygo0rrra0u" path="res://characters/hunters/jesus/jesus.tres" id="5_dnhfs"]
+[ext_resource type="Resource" uid="uid://bcwcp46jvtxbq" path="res://characters/hunters/k3soju/k3soju.tres" id="6_gjv5l"]
 [ext_resource type="Script" uid="uid://c5rs0n0u88b2t" path="res://hunts/battles/code_blocks/initialize_characters.gd" id="6_ohvvp"]
 [ext_resource type="Script" uid="uid://cr8c6dnlrnoqr" path="res://hunts/battles/code_blocks/focus_camera.gd" id="8_62ji6"]
+[ext_resource type="Resource" uid="uid://b87tnth0rt1s2" path="res://characters/enemies/clav/clav.tres" id="8_k8dur"]
 [ext_resource type="Script" uid="uid://ccsc04mn0ft87" path="res://hunts/battles/ui/hud.gd" id="9_4jpop"]
+[ext_resource type="Resource" uid="uid://dkyq72u0skxts" path="res://characters/enemies/joe/joe.tres" id="9_lvofu"]
+[ext_resource type="Resource" uid="uid://cmswkvipjjmx8" path="res://characters/enemies/peter_thiel/peter_thiel.tres" id="10_5kl7h"]
+[ext_resource type="Script" uid="uid://7234j5hco1em" path="res://hunts/battles/ui/post_battle_hud.gd" id="15_dnhfs"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_6sj1v"]
 size = Vector3(20, 1, 20)
@@ -19,8 +26,8 @@ size = Vector3(20, 1, 20)
 
 [node name="BattleManager" type="Node" parent="." unique_id=753362522 node_paths=PackedStringArray("initialize_characters", "focus_camera")]
 script = ExtResource("1_7r4xy")
-hunters = Array[ExtResource("4_4jpop")]([ExtResource("3_62ji6"), ExtResource("3_62ji6"), ExtResource("3_62ji6"), ExtResource("3_62ji6")])
-enemies = Array[ExtResource("4_4jpop")]([ExtResource("4_ohvvp"), ExtResource("4_ohvvp"), ExtResource("4_ohvvp"), ExtResource("4_ohvvp")])
+hunters = Array[ExtResource("4_4jpop")]([ExtResource("3_62ji6"), ExtResource("4_3y2ad"), ExtResource("5_dnhfs"), ExtResource("6_gjv5l")])
+enemies = Array[ExtResource("4_4jpop")]([ExtResource("4_ohvvp"), ExtResource("8_k8dur"), ExtResource("9_lvofu"), ExtResource("10_5kl7h")])
 initialize_characters = NodePath("InitializeCharacters")
 focus_camera = NodePath("FocusCamera")
 
@@ -90,7 +97,7 @@ render_target_update_mode = 4
 transform = Transform3D(1, 0, 0, 0, 0.97951615, 0.20136568, 0, -0.20136568, 0.97951615, -0.75, 2, 7.832)
 fov = 70.0
 
-[node name="HUD" type="Control" parent="SubViewportContainer/SubViewport" unique_id=1323089688 node_paths=PackedStringArray("battle_manager", "pre_battle_hud", "hunter_battle_hud")]
+[node name="HUD" type="Control" parent="SubViewportContainer/SubViewport" unique_id=1323089688 node_paths=PackedStringArray("battle_manager", "pre_battle_hud", "hunter_battle_hud", "post_battle_hud")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -101,6 +108,7 @@ script = ExtResource("9_4jpop")
 battle_manager = NodePath("../../../BattleManager")
 pre_battle_hud = NodePath("PreBattleHUD")
 hunter_battle_hud = NodePath("HunterBattleHUD")
+post_battle_hud = NodePath("PostBattleHUD")
 
 [node name="PreBattleHUD" type="MarginContainer" parent="SubViewportContainer/SubViewport/HUD" unique_id=1778485397]
 layout_mode = 1
@@ -291,5 +299,61 @@ theme_override_constants/margin_bottom = 30
 [node name="Items" type="VBoxContainer" parent="SubViewportContainer/SubViewport/HUD/HunterBattleHUD/Equipped/VBoxContainer/AbilitiesItemsUI/VBoxContainer/ItemPanel/MarginContainer" unique_id=485716149]
 layout_mode = 2
 
+[node name="PostBattleHUD" type="Panel" parent="SubViewportContainer/SubViewport/HUD" unique_id=1464541846 node_paths=PackedStringArray("post_battle_results", "result_label")]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("15_dnhfs")
+post_battle_results = NodePath("VBoxContainer/PostBattleReport")
+result_label = NodePath("VBoxContainer/BattleResult")
+win_text = "Triumph"
+lose_text = "Loss"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="SubViewportContainer/SubViewport/HUD/PostBattleHUD" unique_id=653167555]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 64
+
+[node name="BattleResult" type="Label" parent="SubViewportContainer/SubViewport/HUD/PostBattleHUD/VBoxContainer" unique_id=2044370129]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 64
+text = "Battle Result"
+
+[node name="PostBattleReport" type="VBoxContainer" parent="SubViewportContainer/SubViewport/HUD/PostBattleHUD/VBoxContainer" unique_id=2126954034]
+layout_mode = 2
+
+[node name="Rewards" type="VBoxContainer" parent="SubViewportContainer/SubViewport/HUD/PostBattleHUD/VBoxContainer/PostBattleReport" unique_id=71398545]
+layout_mode = 2
+
+[node name="RewardsLabel" type="Label" parent="SubViewportContainer/SubViewport/HUD/PostBattleHUD/VBoxContainer/PostBattleReport/Rewards" unique_id=866329574]
+layout_mode = 2
+text = "Rewards"
+
+[node name="ItemRewards" type="HBoxContainer" parent="SubViewportContainer/SubViewport/HUD/PostBattleHUD/VBoxContainer/PostBattleReport/Rewards" unique_id=1925650001]
+layout_mode = 2
+
+[node name="Continue" type="Button" parent="SubViewportContainer/SubViewport/HUD/PostBattleHUD/VBoxContainer" unique_id=1997365946]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+text = "Continue
+"
+
 [connection signal="pressed" from="SubViewportContainer/SubViewport/HUD/PreBattleHUD/StartBattleButton" to="SubViewportContainer/SubViewport/HUD" method="_on_start_battle_button_pressed"]
 [connection signal="pressed" from="SubViewportContainer/SubViewport/HUD/HunterBattleHUD/Equipped/VBoxContainer/EndTurnButton" to="SubViewportContainer/SubViewport/HUD" method="_on_end_turn_button_pressed"]
+[connection signal="pressed" from="SubViewportContainer/SubViewport/HUD/PostBattleHUD/VBoxContainer/Continue" to="SubViewportContainer/SubViewport/HUD/PostBattleHUD" method="_on_continue_pressed"]

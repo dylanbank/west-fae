@@ -4,14 +4,17 @@
 [ext_resource type="PackedScene" uid="uid://iahqrc7o1224" path="res://characters/Character.tscn" id="1_u7772"]
 [ext_resource type="Script" uid="uid://dhm25anvaf4to" path="res://characters/items/base_item_res.gd" id="2_bp2ku"]
 [ext_resource type="Texture2D" uid="uid://chnlhq6y21n4n" path="res://icon.svg" id="2_dsus4"]
+[ext_resource type="Texture2D" uid="uid://brpm7gmar7mbx" path="res://skull_render.png" id="2_xydh2"]
 [ext_resource type="Script" uid="uid://cg340kvj3ltnb" path="res://characters/character_res.gd" id="3_v1b8g"]
+[ext_resource type="Texture2D" uid="uid://b84y8w3f7ee03" path="res://geeble_render.png" id="5_bpju4"]
 
 [resource]
 script = ExtResource("3_v1b8g")
 name = "Mark"
+enemy = true
 idle_sprite = ExtResource("2_dsus4")
-hit_sprite = ExtResource("2_dsus4")
-dead_sprite = ExtResource("2_dsus4")
+hit_sprite = ExtResource("5_bpju4")
+dead_sprite = ExtResource("2_xydh2")
 character_node = ExtResource("1_u7772")
 base_health = 30.0
 current_health = 30.0

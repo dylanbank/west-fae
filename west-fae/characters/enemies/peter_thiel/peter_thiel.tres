@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="CharacterResource" format=3 uid="uid://cmswkvipjjmx8"]
+
+[ext_resource type="PackedScene" uid="uid://iahqrc7o1224" path="res://characters/Character.tscn" id="1_3bop7"]
+[ext_resource type="Script" uid="uid://bs6pyqomfpqvv" path="res://characters/abilities/base_ability_res.gd" id="1_xny8p"]
+[ext_resource type="Script" uid="uid://dhm25anvaf4to" path="res://characters/items/base_item_res.gd" id="2_kyvbu"]
+[ext_resource type="Texture2D" uid="uid://brpm7gmar7mbx" path="res://skull_render.png" id="2_y4yip"]
+[ext_resource type="Script" uid="uid://cg340kvj3ltnb" path="res://characters/character_res.gd" id="3_egbqb"]
+[ext_resource type="Texture2D" uid="uid://b84y8w3f7ee03" path="res://geeble_render.png" id="5_ll0g2"]
+[ext_resource type="Texture2D" uid="uid://chnlhq6y21n4n" path="res://icon.svg" id="6_0s81o"]
+
+[resource]
+script = ExtResource("3_egbqb")
+name = "Peter Thiel"
+enemy = true
+idle_sprite = ExtResource("6_0s81o")
+hit_sprite = ExtResource("5_ll0g2")
+dead_sprite = ExtResource("2_y4yip")
+character_node = ExtResource("1_3bop7")
+base_health = 30.0
+current_health = 30.0
+strength = 10.0
+dexterity = 2.0
+intelligence = 5.0
+metadata/_custom_type_script = "uid://cg340kvj3ltnb"

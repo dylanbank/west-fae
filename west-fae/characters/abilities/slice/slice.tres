@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="InstantAbilityResource" format=3 uid="uid://dawci3b1548hm"]
+
+[ext_resource type="Texture2D" uid="uid://b84y8w3f7ee03" path="res://geeble_render.png" id="1_5psxl"]
+[ext_resource type="Script" uid="uid://dyibwiev5w0hy" path="res://characters/abilities/instant_ability_res.gd" id="1_jjgqh"]
+
+[resource]
+script = ExtResource("1_jjgqh")
+name = "Slice"
+descr = "Attack the frontmost unit"
+icon = ExtResource("1_5psxl")
+ability_slot = "AnyClass"
+scaling_stat = Array[String](["Strength"])
+affected_pips = Array[int]([0])
+health_change = -5.0
+metadata/_custom_type_script = "uid://dyibwiev5w0hy"

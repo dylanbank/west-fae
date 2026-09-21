@@ -2,6 +2,7 @@ extends Resource
 class_name CharacterResource
 
 @export var name : String
+@export var enemy : bool = false
 @export var idle_sprite : Texture2D
 @export var hit_sprite : Texture2D
 @export var dead_sprite : Texture2D
