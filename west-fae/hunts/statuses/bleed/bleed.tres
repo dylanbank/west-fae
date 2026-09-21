@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Bleed" format=3 uid="uid://c848rnmhu6op6"]
+
+[ext_resource type="Script" uid="uid://cwbdracg63ccl" path="res://hunts/statuses/bleed/bleed.gd" id="1_geui4"]
+[ext_resource type="Texture2D" uid="uid://chnlhq6y21n4n" path="res://icon.svg" id="2_2ujnm"]
+
+[resource]
+resource_local_to_scene = true
+script = ExtResource("1_geui4")
+name = "Bleed"
+status_icon = ExtResource("2_2ujnm")
+metadata/_custom_type_script = "uid://cwbdracg63ccl"

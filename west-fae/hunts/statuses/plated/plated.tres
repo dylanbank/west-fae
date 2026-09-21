@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="StatusResource" format=3 uid="uid://bbfm47qgkra3p"]
+
+[ext_resource type="Script" uid="uid://i1wy4dntu1l2" path="res://hunts/statuses/status_res.gd" id="1_v0gkv"]
+[ext_resource type="Texture2D" uid="uid://b84y8w3f7ee03" path="res://geeble_render.png" id="2_pqilr"]
+
+[resource]
+resource_local_to_scene = true
+script = ExtResource("1_v0gkv")
+name = "Plated"
+status_icon = ExtResource("2_pqilr")
+metadata/_custom_type_script = "uid://i1wy4dntu1l2"

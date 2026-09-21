@@ -17,6 +17,8 @@ class_name CharacterResource
 @export var instinct : float
 #@export var charisma : float
 
+@export var statuses : Array[StatusResource]
+
 @export var equipped_abilities : Array[BaseAbilityResource]
 @export var equipped_weapon : WeaponResource
 @export var equipped_items : Array[BaseItemResource]

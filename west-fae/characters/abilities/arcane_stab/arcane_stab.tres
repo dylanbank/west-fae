@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="ArcaneStab" format=3 uid="uid://brb45u6spadl2"]
+
+[ext_resource type="Texture2D" uid="uid://b84y8w3f7ee03" path="res://geeble_render.png" id="1_7e6m3"]
+[ext_resource type="Script" uid="uid://boy7lbq6jnr1i" path="res://characters/abilities/arcane_stab/arcane_stab.gd" id="1_pdt47"]
+[ext_resource type="Resource" uid="uid://c848rnmhu6op6" path="res://hunts/statuses/bleed/bleed.tres" id="3_jy0qj"]
+
+[resource]
+script = ExtResource("1_pdt47")
+name = "Arcane Stab"
+descr = "Stab the enemy and apply [INSERT R STATUS 0]."
+icon = ExtResource("1_7e6m3")
+ability_slot = "AnyClass"
+scaling_stat = Array[String](["Strength", "Intelligence"])
+affected_pips = Array[int]([0])
+health_change = -5.0
+status_to_apply_to_recipient = ExtResource("3_jy0qj")
+metadata/_custom_type_script = "uid://boy7lbq6jnr1i"

@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="StatusResource" format=3 uid="uid://ct8k04vngp6vy"]
+
+[ext_resource type="Script" uid="uid://i1wy4dntu1l2" path="res://hunts/statuses/status_res.gd" id="1_ghsof"]
+[ext_resource type="Texture2D" uid="uid://b84y8w3f7ee03" path="res://geeble_render.png" id="2_stxxo"]
+
+[resource]
+script = ExtResource("1_ghsof")
+name = "Burn"
+status_icon = ExtResource("2_stxxo")
+metadata/_custom_type_script = "uid://i1wy4dntu1l2"

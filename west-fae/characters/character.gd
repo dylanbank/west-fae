@@ -24,13 +24,15 @@ func calc_hit_time(dmg_amt : float) -> float:
 	var perc_of_health : float = dmg_amt / character_res.current_health
 	return perc_of_health * hit_time_scale
 
-func take_damage(raw_dmg_amt : float) -> void:
-	var hit_anim_duration : float = calc_hit_time(raw_dmg_amt)
-	sprite_3d.texture = character_res.hit_sprite
-	timer.wait_time = hit_anim_duration
-	timer.start()
+func change_health(raw_dmg_amt : float) -> void:
 	
-	character_res.current_health = max(character_res.current_health - raw_dmg_amt, 0)
+	if raw_dmg_amt < 0:
+		var hit_anim_duration : float = calc_hit_time(abs(raw_dmg_amt))
+		sprite_3d.texture = character_res.hit_sprite
+		timer.wait_time = hit_anim_duration
+		timer.start()
+	
+	character_res.current_health = max(character_res.current_health + raw_dmg_amt, 0)
 	if character_res.current_health == 0:
 		character_res.dead = true
 	

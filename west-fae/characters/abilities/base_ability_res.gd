@@ -14,12 +14,13 @@ class_name BaseAbilityResource
 
 @export var health_change : float #damage or heal amount
 
-@export var status_to_apply : StatusResource
+@export var status_to_apply_to_self : StatusResource
+@export var status_to_apply_to_recipient : StatusResource
 
 # stat changes
 #@export var flat_damage : float
 #@export var percent_damage : float
 #@export var new_interaction : float
 
-func use(target_chars : Array[CharacterResource]) -> void:
+func use(caster : Character, target_chars : Array[Character]) -> void:
 	print("Please don't use a base ability resource. Instead use a child ability resource for ability specific affect.")
