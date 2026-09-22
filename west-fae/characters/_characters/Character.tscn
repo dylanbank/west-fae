@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://iahqrc7o1224"]
+
+[ext_resource type="Script" uid="uid://bk5rtse70jn7n" path="res://characters/_characters/character.gd" id="1_cqlfc"]
+[ext_resource type="Texture2D" uid="uid://chnlhq6y21n4n" path="res://icon.svg" id="2_32im1"]
+[ext_resource type="Script" uid="uid://cm4osmh5cxy7d" path="res://characters/_characters/code_blocks/resource_bars.gd" id="2_qq5e2"]
+[ext_resource type="PackedScene" uid="uid://bx03l0v8f1ul0" path="res://hunts/battles/ui/resource_bars/HealthProgressBar.tscn" id="4_akeys"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_la1yr"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_fa6fv"]
+viewport_path = NodePath("HealthBarSubViewport")
+
+[node name="Character" type="CharacterBody3D" unique_id=1785240785]
+script = ExtResource("1_cqlfc")
+focus_pos_offset = Vector3(0.7, 0, 0)
+focus_lerp = 4.0
+
+[node name="ResourceBars" type="Node3D" parent="." unique_id=2063565162 node_paths=PackedStringArray("character", "resource_bars")]
+script = ExtResource("2_qq5e2")
+character = NodePath("..")
+resource_bars = NodePath("../HealthBarSubViewport/ResourceProgressBars")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1599146581]
+shape = SubResource("BoxShape3D_la1yr")
+
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=1010981825]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.14009047, 0)
+texture = ExtResource("2_32im1")
+
+[node name="Timer" type="Timer" parent="." unique_id=795938687]
+one_shot = true
+
+[node name="HealthBar" type="Sprite3D" parent="." unique_id=816090832]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0.3)
+texture = SubResource("ViewportTexture_fa6fv")
+
+[node name="HealthBarSubViewport" type="SubViewport" parent="." unique_id=1487688424]
+disable_3d = true
+transparent_bg = true
+
+[node name="ResourceProgressBars" parent="HealthBarSubViewport" unique_id=829837326 instance=ExtResource("4_akeys")]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

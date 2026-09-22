@@ -2,6 +2,7 @@ extends Control
 class_name BattleHUD
 
 @export var battle_manager : BattleManager
+
 @export var pre_battle_hud : MarginContainer
 @export var hunter_battle_hud : MarginContainer
 @export var post_battle_hud : Panel
@@ -11,6 +12,7 @@ func _on_start_battle_button_pressed() -> void:
 	
 	hunter_battle_hud.show()
 	pre_battle_hud.hide()
+	post_battle_hud.hide()
 
 func _on_end_turn_button_pressed() -> void:
 	battle_manager.incr_turn()

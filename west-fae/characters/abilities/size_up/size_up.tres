@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="InstantAbilityResource" format=3 uid="uid://b6mnn7meedtyb"]
 
 [ext_resource type="Texture2D" uid="uid://chnlhq6y21n4n" path="res://icon.svg" id="1_4230s"]
-[ext_resource type="Script" uid="uid://dyibwiev5w0hy" path="res://characters/abilities/instant_ability_res.gd" id="1_w14tx"]
+[ext_resource type="Script" uid="uid://dyibwiev5w0hy" path="res://characters/abilities/_ability_resources/instant_ability_res.gd" id="1_w14tx"]
 [ext_resource type="Resource" uid="uid://bbfm47qgkra3p" path="res://hunts/statuses/plated/plated.tres" id="3_5ayg0"]
 
 [resource]

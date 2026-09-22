@@ -1,0 +1,60 @@
+[gd_scene format=3 uid="uid://bx03l0v8f1ul0"]
+
+[ext_resource type="Script" uid="uid://gy4cjefhij05" path="res://hunts/battles/ui/resource_bars/health_progress_bar.gd" id="1_2tv4l"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6sj1v"]
+bg_color = Color(0.3254902, 0, 0, 0.49019608)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ai6g8"]
+bg_color = Color(0.3254902, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_annh4"]
+bg_color = Color(0.023529412, 0, 0.62352943, 0.49019608)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3p56h"]
+bg_color = Color(0.0252556, 0, 0.62265486, 1)
+
+[node name="ResourceProgressBars" type="Control" unique_id=829837326 node_paths=PackedStringArray("health_progress_bar", "energy_progress_bar")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_2tv4l")
+health_progress_bar = NodePath("HBoxContainer/HealthProgressBar")
+energy_progress_bar = NodePath("HBoxContainer/EnergyProgressBar")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=729372678]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -7.0
+offset_top = -48.125
+offset_right = 7.0
+offset_bottom = 48.125
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HealthProgressBar" type="ProgressBar" parent="HBoxContainer" unique_id=2145994399]
+custom_minimum_size = Vector2(5, 0)
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_styles/background = SubResource("StyleBoxFlat_6sj1v")
+theme_override_styles/fill = SubResource("StyleBoxFlat_ai6g8")
+value = 50.0
+fill_mode = 3
+show_percentage = false
+
+[node name="EnergyProgressBar" type="ProgressBar" parent="HBoxContainer" unique_id=59582508]
+custom_minimum_size = Vector2(5, 0)
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_styles/background = SubResource("StyleBoxFlat_annh4")
+theme_override_styles/fill = SubResource("StyleBoxFlat_3p56h")
+value = 50.0
+fill_mode = 3
+show_percentage = false

@@ -1,12 +1,15 @@
 [gd_resource type="Resource" script_class="CharacterResource" format=3 uid="uid://dh3onvcktfeuu"]
 
-[ext_resource type="PackedScene" uid="uid://iahqrc7o1224" path="res://characters/Character.tscn" id="1_33vjt"]
+[ext_resource type="PackedScene" uid="uid://iahqrc7o1224" path="res://characters/_characters/Character.tscn" id="1_33vjt"]
 [ext_resource type="Texture2D" uid="uid://brpm7gmar7mbx" path="res://skull_render.png" id="2_a4ghl"]
 [ext_resource type="Texture2D" uid="uid://chnlhq6y21n4n" path="res://icon.svg" id="2_gi4ot"]
-[ext_resource type="Script" uid="uid://cg340kvj3ltnb" path="res://characters/character_res.gd" id="3_1j5j0"]
-[ext_resource type="Script" uid="uid://bs6pyqomfpqvv" path="res://characters/abilities/base_ability_res.gd" id="3_fkbln"]
+[ext_resource type="Script" uid="uid://cg340kvj3ltnb" path="res://characters/_characters/character_res.gd" id="3_1j5j0"]
+[ext_resource type="Resource" uid="uid://brb45u6spadl2" path="res://characters/abilities/arcane_stab/arcane_stab.tres" id="3_diurh"]
 [ext_resource type="Script" uid="uid://dhm25anvaf4to" path="res://characters/items/base_item_res.gd" id="4_a4ghl"]
+[ext_resource type="Resource" uid="uid://b6mnn7meedtyb" path="res://characters/abilities/size_up/size_up.tres" id="4_ir71c"]
 [ext_resource type="Texture2D" uid="uid://b84y8w3f7ee03" path="res://geeble_render.png" id="5_qnjjc"]
+[ext_resource type="Resource" uid="uid://dawci3b1548hm" path="res://characters/abilities/slice/slice.tres" id="5_tgkia"]
+[ext_resource type="Script" uid="uid://i1wy4dntu1l2" path="res://hunts/statuses/status_res.gd" id="8_qnjjc"]
 
 [resource]
 script = ExtResource("3_1j5j0")
@@ -16,8 +19,11 @@ hit_sprite = ExtResource("5_qnjjc")
 dead_sprite = ExtResource("2_a4ghl")
 character_node = ExtResource("1_33vjt")
 base_health = 30.0
-current_health = 30.0
+max_health = 100.0
+current_health = 100.0
 strength = 4.0
 dexterity = 4.0
 intelligence = 5.0
+equipped_abilities = [ExtResource("3_diurh"), ExtResource("4_ir71c"), ExtResource("5_tgkia"), ExtResource("5_tgkia")]
+equipped_weapon = ExtResource("3_diurh")
 metadata/_custom_type_script = "uid://cg340kvj3ltnb"

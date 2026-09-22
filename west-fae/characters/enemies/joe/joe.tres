@@ -1,12 +1,13 @@
 [gd_resource type="Resource" script_class="CharacterResource" format=3 uid="uid://dkyq72u0skxts"]
 
-[ext_resource type="PackedScene" uid="uid://iahqrc7o1224" path="res://characters/Character.tscn" id="1_eykat"]
-[ext_resource type="Script" uid="uid://bs6pyqomfpqvv" path="res://characters/abilities/base_ability_res.gd" id="1_jkymt"]
+[ext_resource type="PackedScene" uid="uid://iahqrc7o1224" path="res://characters/_characters/Character.tscn" id="1_eykat"]
+[ext_resource type="Script" uid="uid://bs6pyqomfpqvv" path="res://characters/abilities/_ability_resources/base_ability_res.gd" id="1_jkymt"]
 [ext_resource type="Texture2D" uid="uid://brpm7gmar7mbx" path="res://skull_render.png" id="2_qmyh5"]
 [ext_resource type="Script" uid="uid://dhm25anvaf4to" path="res://characters/items/base_item_res.gd" id="2_wksha"]
-[ext_resource type="Script" uid="uid://cg340kvj3ltnb" path="res://characters/character_res.gd" id="3_sgkto"]
+[ext_resource type="Script" uid="uid://cg340kvj3ltnb" path="res://characters/_characters/character_res.gd" id="3_sgkto"]
 [ext_resource type="Texture2D" uid="uid://b84y8w3f7ee03" path="res://geeble_render.png" id="5_j0hu1"]
 [ext_resource type="Texture2D" uid="uid://chnlhq6y21n4n" path="res://icon.svg" id="6_prv44"]
+[ext_resource type="Script" uid="uid://i1wy4dntu1l2" path="res://hunts/statuses/status_res.gd" id="8_qmyh5"]
 
 [resource]
 script = ExtResource("3_sgkto")
@@ -17,6 +18,7 @@ hit_sprite = ExtResource("5_j0hu1")
 dead_sprite = ExtResource("2_qmyh5")
 character_node = ExtResource("1_eykat")
 base_health = 30.0
+max_health = 100.0
 current_health = 30.0
 strength = 10.0
 dexterity = 2.0

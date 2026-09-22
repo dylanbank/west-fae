@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://ddiyyjaw87lx6"]
+
+[ext_resource type="Script" uid="uid://dxm0pfs4s67li" path="res://characters/abilities/_ability_resources/_projectiles/projectile.gd" id="1_a63fd"]
+[ext_resource type="Texture2D" uid="uid://b84y8w3f7ee03" path="res://geeble_render.png" id="2_wcfuw"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6sj1v"]
+
+[node name="Projectile" type="RigidBody3D" unique_id=178573080]
+script = ExtResource("1_a63fd")
+
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=34522471]
+texture = ExtResource("2_wcfuw")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1384337242]
+shape = SubResource("BoxShape3D_6sj1v")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

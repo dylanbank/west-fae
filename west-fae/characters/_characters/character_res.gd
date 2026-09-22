@@ -8,6 +8,7 @@ class_name CharacterResource
 @export var dead_sprite : Texture2D
 @export var character_node : PackedScene
 @export var base_health : float
+@export var max_health : float
 @export var current_health : float
 
 @export var strength : float
@@ -19,8 +20,8 @@ class_name CharacterResource
 
 @export var statuses : Array[StatusResource]
 
-@export var equipped_abilities : Array[BaseAbilityResource]
-@export var equipped_weapon : WeaponResource
+@export_custom(PROPERTY_HINT_RESOURCE_TYPE, "BaseAbilityResource") var equipped_abilities : Array
+@export var equipped_weapon : BaseAbilityResource
 @export var equipped_items : Array[BaseItemResource]
 
 @export var dead : bool = false

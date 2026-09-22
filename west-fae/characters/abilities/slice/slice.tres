@@ -1,7 +1,11 @@
-[gd_resource type="Resource" script_class="Slice" format=3 uid="uid://dawci3b1548hm"]
+[gd_resource type="Resource" script_class="SliceAbility" format=3 uid="uid://dawci3b1548hm"]
 
+[ext_resource type="Texture2D" uid="uid://brpm7gmar7mbx" path="res://skull_render.png" id="1_5psxl"]
 [ext_resource type="Script" uid="uid://cfgwxyqyce0kf" path="res://characters/abilities/slice/slice.gd" id="1_jjgqh"]
 
 [resource]
 script = ExtResource("1_jjgqh")
+name = "Slice"
+icon = ExtResource("1_5psxl")
+health_change = -5.0
 metadata/_custom_type_script = "uid://cfgwxyqyce0kf"
