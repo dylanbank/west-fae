@@ -3,13 +3,13 @@
 [ext_resource type="Script" uid="uid://gy4cjefhij05" path="res://hunts/battles/ui/resource_bars/health_progress_bar.gd" id="1_2tv4l"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6sj1v"]
-bg_color = Color(0.3254902, 0, 0, 0.49019608)
+bg_color = Color(0.3254902, 0, 0, 0.5882353)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ai6g8"]
 bg_color = Color(0.3254902, 0, 0, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_annh4"]
-bg_color = Color(0.023529412, 0, 0.62352943, 0.49019608)
+bg_color = Color(0.023529412, 0, 0.62352943, 0.5882353)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3p56h"]
 bg_color = Color(0.0252556, 0, 0.62265486, 1)
@@ -32,15 +32,16 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -7.0
+offset_left = -4.5
 offset_top = -48.125
-offset_right = 7.0
+offset_right = 4.5
 offset_bottom = 48.125
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/separation = 3
 
 [node name="HealthProgressBar" type="ProgressBar" parent="HBoxContainer" unique_id=2145994399]
-custom_minimum_size = Vector2(5, 0)
+custom_minimum_size = Vector2(3, 0)
 layout_mode = 2
 size_flags_vertical = 1
 theme_override_styles/background = SubResource("StyleBoxFlat_6sj1v")
@@ -50,7 +51,7 @@ fill_mode = 3
 show_percentage = false
 
 [node name="EnergyProgressBar" type="ProgressBar" parent="HBoxContainer" unique_id=59582508]
-custom_minimum_size = Vector2(5, 0)
+custom_minimum_size = Vector2(3, 0)
 layout_mode = 2
 size_flags_vertical = 1
 theme_override_styles/background = SubResource("StyleBoxFlat_annh4")

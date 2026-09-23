@@ -15,6 +15,7 @@
 [ext_resource type="Resource" uid="uid://dkyq72u0skxts" path="res://characters/enemies/joe/joe.tres" id="9_lvofu"]
 [ext_resource type="Resource" uid="uid://cmswkvipjjmx8" path="res://characters/enemies/peter_thiel/peter_thiel.tres" id="10_5kl7h"]
 [ext_resource type="Script" uid="uid://dtt1mjx25eavp" path="res://hunts/battles/ui/code_blocks/update_abilities.gd" id="14_gjv5l"]
+[ext_resource type="Script" uid="uid://dwka73no1kxe8" path="res://hunts/battles/ui/code_blocks/ability_targeting.gd" id="14_lvofu"]
 [ext_resource type="Script" uid="uid://7234j5hco1em" path="res://hunts/battles/ui/post_battle_hud.gd" id="15_dnhfs"]
 [ext_resource type="Texture2D" uid="uid://buli5t6re05yr" path="res://lowpolyfrogcat.jpg" id="15_k8dur"]
 
@@ -112,22 +113,25 @@ pre_battle_hud = NodePath("PreBattleHUD")
 hunter_battle_hud = NodePath("HunterBattleHUD")
 post_battle_hud = NodePath("PostBattleHUD")
 
-[node name="UpdateAbilities" type="Control" parent="SubViewportContainer/SubViewport/BattleHUD" unique_id=809507751 node_paths=PackedStringArray("hud", "ability_1_icon", "ability_1_name", "ability_2_icon", "ability_2_name", "ability_3_icon", "ability_3_name", "ability_4_icon", "ability_4_name", "weapon_icon", "weapon_name")]
+[node name="AbilityTargeting" type="Control" parent="SubViewportContainer/SubViewport/BattleHUD" unique_id=1198544221 node_paths=PackedStringArray("update_abilities")]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("14_lvofu")
+update_abilities = NodePath("../UpdateAbilities")
+
+[node name="UpdateAbilities" type="Control" parent="SubViewportContainer/SubViewport/BattleHUD" unique_id=809507751 node_paths=PackedStringArray("hud", "battle_manager", "ability_1_btn", "ability_2_btn", "ability_3_btn", "ability_4_btn", "weapon_btn")]
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("14_gjv5l")
 hud = NodePath("..")
-ability_1_icon = NodePath("../HunterBattleHUD/Equipped/VBoxContainer/AbilitiesItemsUI/AbilityPanel/MarginContainer2/Abilities/Ability1VBox/Ability1Icon")
-ability_1_name = NodePath("../HunterBattleHUD/Equipped/VBoxContainer/AbilitiesItemsUI/AbilityPanel/MarginContainer2/Abilities/Ability1VBox/Ability1Label")
-ability_2_icon = NodePath("../HunterBattleHUD/Equipped/VBoxContainer/AbilitiesItemsUI/AbilityPanel/MarginContainer2/Abilities/Ability2VBox/Ability2Icon")
-ability_2_name = NodePath("../HunterBattleHUD/Equipped/VBoxContainer/AbilitiesItemsUI/AbilityPanel/MarginContainer2/Abilities/Ability2VBox/Ability2Label")
-ability_3_icon = NodePath("../HunterBattleHUD/Equipped/VBoxContainer/AbilitiesItemsUI/AbilityPanel/MarginContainer2/Abilities/Ability3VBox/Ability3Icon")
-ability_3_name = NodePath("../HunterBattleHUD/Equipped/VBoxContainer/AbilitiesItemsUI/AbilityPanel/MarginContainer2/Abilities/Ability3VBox/Ability3Label")
-ability_4_icon = NodePath("../HunterBattleHUD/Equipped/VBoxContainer/AbilitiesItemsUI/AbilityPanel/MarginContainer2/Abilities/Ability4VBox/Ability4Icon")
-ability_4_name = NodePath("../HunterBattleHUD/Equipped/VBoxContainer/AbilitiesItemsUI/AbilityPanel/MarginContainer2/Abilities/Ability4VBox/Ability4Label")
-weapon_icon = NodePath("../HunterBattleHUD/Equipped/VBoxContainer/AbilitiesItemsUI/AbilityPanel/MarginContainer2/Abilities/WeaponVBox/WeaponIcon")
-weapon_name = NodePath("../HunterBattleHUD/Equipped/VBoxContainer/AbilitiesItemsUI/AbilityPanel/MarginContainer2/Abilities/WeaponVBox/WeaponLabel")
+battle_manager = NodePath("../../../../BattleManager")
+ability_1_btn = NodePath("../HunterBattleHUD/Equipped/VBoxContainer/AbilitiesItemsUI/AbilityPanel/Abilities/Ability1Button")
+ability_2_btn = NodePath("../HunterBattleHUD/Equipped/VBoxContainer/AbilitiesItemsUI/AbilityPanel/Abilities/Ability2Button")
+ability_3_btn = NodePath("../HunterBattleHUD/Equipped/VBoxContainer/AbilitiesItemsUI/AbilityPanel/Abilities/Ability3Button")
+ability_4_btn = NodePath("../HunterBattleHUD/Equipped/VBoxContainer/AbilitiesItemsUI/AbilityPanel/Abilities/Ability4Button")
+weapon_btn = NodePath("../HunterBattleHUD/Equipped/VBoxContainer/AbilitiesItemsUI/AbilityPanel/Abilities/WeaponButton")
 error_texture = ExtResource("15_k8dur")
 error_label = "Error"
 
@@ -203,104 +207,79 @@ layout_mode = 2
 custom_minimum_size = Vector2(800, 200)
 layout_mode = 2
 
-[node name="MarginContainer2" type="MarginContainer" parent="SubViewportContainer/SubViewport/BattleHUD/HunterBattleHUD/Equipped/VBoxContainer/AbilitiesItemsUI/AbilityPanel" unique_id=1214876383]
-layout_mode = 0
-offset_right = 768.0
-offset_bottom = 219.0
-theme_override_constants/margin_left = 30
-theme_override_constants/margin_top = 30
-theme_override_constants/margin_right = 30
-theme_override_constants/margin_bottom = 30
-
-[node name="Abilities" type="HBoxContainer" parent="SubViewportContainer/SubViewport/BattleHUD/HunterBattleHUD/Equipped/VBoxContainer/AbilitiesItemsUI/AbilityPanel/MarginContainer2" unique_id=1625103777]
-layout_mode = 2
+[node name="Abilities" type="HBoxContainer" parent="SubViewportContainer/SubViewport/BattleHUD/HunterBattleHUD/Equipped/VBoxContainer/AbilitiesItemsUI/AbilityPanel" unique_id=1625103777]
+custom_minimum_size = Vector2(0, 125)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -217.5
+offset_top = -50.0
+offset_right = 217.5
+offset_bottom = 50.0
+grow_horizontal = 2
+grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-theme_override_constants/separation = 20
+theme_override_constants/separation = 50
 alignment = 1
 
-[node name="Ability1VBox" type="VBoxContainer" parent="SubViewportContainer/SubViewport/BattleHUD/HunterBattleHUD/Equipped/VBoxContainer/AbilitiesItemsUI/AbilityPanel/MarginContainer2/Abilities" unique_id=560820332]
+[node name="Ability1Button" type="Button" parent="SubViewportContainer/SubViewport/BattleHUD/HunterBattleHUD/Equipped/VBoxContainer/AbilitiesItemsUI/AbilityPanel/Abilities" unique_id=1389041441]
+custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
-theme_override_constants/separation = 10
-
-[node name="Ability1Icon" type="TextureRect" parent="SubViewportContainer/SubViewport/BattleHUD/HunterBattleHUD/Equipped/VBoxContainer/AbilitiesItemsUI/AbilityPanel/MarginContainer2/Abilities/Ability1VBox" unique_id=1005334953]
-custom_maximum_size = Vector2(100, 100)
-layout_mode = 2
-texture = ExtResource("4_5ri0k")
-
-[node name="Ability1Label" type="Label" parent="SubViewportContainer/SubViewport/BattleHUD/HunterBattleHUD/Equipped/VBoxContainer/AbilitiesItemsUI/AbilityPanel/MarginContainer2/Abilities/Ability1VBox" unique_id=549377977]
-layout_mode = 2
+size_flags_horizontal = 4
 text = "Ability 1"
-horizontal_alignment = 1
+icon = ExtResource("4_5ri0k")
+alignment = 0
+icon_alignment = 1
+vertical_icon_alignment = 0
+expand_icon = true
 
-[node name="Spacer1" type="Control" parent="SubViewportContainer/SubViewport/BattleHUD/HunterBattleHUD/Equipped/VBoxContainer/AbilitiesItemsUI/AbilityPanel/MarginContainer2/Abilities" unique_id=1627049763]
+[node name="Ability2Button" type="Button" parent="SubViewportContainer/SubViewport/BattleHUD/HunterBattleHUD/Equipped/VBoxContainer/AbilitiesItemsUI/AbilityPanel/Abilities" unique_id=285920777]
+custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
-
-[node name="Ability2VBox" type="VBoxContainer" parent="SubViewportContainer/SubViewport/BattleHUD/HunterBattleHUD/Equipped/VBoxContainer/AbilitiesItemsUI/AbilityPanel/MarginContainer2/Abilities" unique_id=324393312]
-layout_mode = 2
-theme_override_constants/separation = 10
-
-[node name="Ability2Icon" type="TextureRect" parent="SubViewportContainer/SubViewport/BattleHUD/HunterBattleHUD/Equipped/VBoxContainer/AbilitiesItemsUI/AbilityPanel/MarginContainer2/Abilities/Ability2VBox" unique_id=781479456]
-custom_maximum_size = Vector2(100, 100)
-layout_mode = 2
-texture = ExtResource("4_5ri0k")
-
-[node name="Ability2Label" type="Label" parent="SubViewportContainer/SubViewport/BattleHUD/HunterBattleHUD/Equipped/VBoxContainer/AbilitiesItemsUI/AbilityPanel/MarginContainer2/Abilities/Ability2VBox" unique_id=1289852110]
-layout_mode = 2
+size_flags_horizontal = 4
 text = "Ability 2"
-horizontal_alignment = 1
+icon = ExtResource("4_5ri0k")
+alignment = 0
+icon_alignment = 1
+vertical_icon_alignment = 0
+expand_icon = true
 
-[node name="Spacer2" type="Control" parent="SubViewportContainer/SubViewport/BattleHUD/HunterBattleHUD/Equipped/VBoxContainer/AbilitiesItemsUI/AbilityPanel/MarginContainer2/Abilities" unique_id=247026443]
+[node name="Ability3Button" type="Button" parent="SubViewportContainer/SubViewport/BattleHUD/HunterBattleHUD/Equipped/VBoxContainer/AbilitiesItemsUI/AbilityPanel/Abilities" unique_id=255743709]
+custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
-
-[node name="Ability3VBox" type="VBoxContainer" parent="SubViewportContainer/SubViewport/BattleHUD/HunterBattleHUD/Equipped/VBoxContainer/AbilitiesItemsUI/AbilityPanel/MarginContainer2/Abilities" unique_id=620135209]
-layout_mode = 2
-theme_override_constants/separation = 10
-
-[node name="Ability3Icon" type="TextureRect" parent="SubViewportContainer/SubViewport/BattleHUD/HunterBattleHUD/Equipped/VBoxContainer/AbilitiesItemsUI/AbilityPanel/MarginContainer2/Abilities/Ability3VBox" unique_id=249639508]
-custom_maximum_size = Vector2(100, 100)
-layout_mode = 2
-texture = ExtResource("4_5ri0k")
-
-[node name="Ability3Label" type="Label" parent="SubViewportContainer/SubViewport/BattleHUD/HunterBattleHUD/Equipped/VBoxContainer/AbilitiesItemsUI/AbilityPanel/MarginContainer2/Abilities/Ability3VBox" unique_id=619638919]
-layout_mode = 2
+size_flags_horizontal = 4
 text = "Ability 3"
-horizontal_alignment = 1
+icon = ExtResource("4_5ri0k")
+alignment = 0
+icon_alignment = 1
+vertical_icon_alignment = 0
+expand_icon = true
 
-[node name="Spacer3" type="Control" parent="SubViewportContainer/SubViewport/BattleHUD/HunterBattleHUD/Equipped/VBoxContainer/AbilitiesItemsUI/AbilityPanel/MarginContainer2/Abilities" unique_id=380456830]
+[node name="Ability4Button" type="Button" parent="SubViewportContainer/SubViewport/BattleHUD/HunterBattleHUD/Equipped/VBoxContainer/AbilitiesItemsUI/AbilityPanel/Abilities" unique_id=1797303602]
+custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
-
-[node name="Ability4VBox" type="VBoxContainer" parent="SubViewportContainer/SubViewport/BattleHUD/HunterBattleHUD/Equipped/VBoxContainer/AbilitiesItemsUI/AbilityPanel/MarginContainer2/Abilities" unique_id=298337290]
-layout_mode = 2
-theme_override_constants/separation = 10
-
-[node name="Ability4Icon" type="TextureRect" parent="SubViewportContainer/SubViewport/BattleHUD/HunterBattleHUD/Equipped/VBoxContainer/AbilitiesItemsUI/AbilityPanel/MarginContainer2/Abilities/Ability4VBox" unique_id=1307784053]
-custom_maximum_size = Vector2(100, 100)
-layout_mode = 2
-texture = ExtResource("4_5ri0k")
-
-[node name="Ability4Label" type="Label" parent="SubViewportContainer/SubViewport/BattleHUD/HunterBattleHUD/Equipped/VBoxContainer/AbilitiesItemsUI/AbilityPanel/MarginContainer2/Abilities/Ability4VBox" unique_id=46670400]
-layout_mode = 2
+size_flags_horizontal = 4
 text = "Ability 4"
-horizontal_alignment = 1
+icon = ExtResource("4_5ri0k")
+alignment = 0
+icon_alignment = 1
+vertical_icon_alignment = 0
+expand_icon = true
 
-[node name="Spacer4" type="Control" parent="SubViewportContainer/SubViewport/BattleHUD/HunterBattleHUD/Equipped/VBoxContainer/AbilitiesItemsUI/AbilityPanel/MarginContainer2/Abilities" unique_id=762716507]
+[node name="WeaponButton" type="Button" parent="SubViewportContainer/SubViewport/BattleHUD/HunterBattleHUD/Equipped/VBoxContainer/AbilitiesItemsUI/AbilityPanel/Abilities" unique_id=1284175168]
+custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
-
-[node name="WeaponVBox" type="VBoxContainer" parent="SubViewportContainer/SubViewport/BattleHUD/HunterBattleHUD/Equipped/VBoxContainer/AbilitiesItemsUI/AbilityPanel/MarginContainer2/Abilities" unique_id=945946439]
-layout_mode = 2
-theme_override_constants/separation = 10
-
-[node name="WeaponIcon" type="TextureRect" parent="SubViewportContainer/SubViewport/BattleHUD/HunterBattleHUD/Equipped/VBoxContainer/AbilitiesItemsUI/AbilityPanel/MarginContainer2/Abilities/WeaponVBox" unique_id=618918629]
-custom_maximum_size = Vector2(100, 100)
-layout_mode = 2
-texture = ExtResource("4_5ri0k")
-
-[node name="WeaponLabel" type="Label" parent="SubViewportContainer/SubViewport/BattleHUD/HunterBattleHUD/Equipped/VBoxContainer/AbilitiesItemsUI/AbilityPanel/MarginContainer2/Abilities/WeaponVBox" unique_id=1699284572]
-layout_mode = 2
-text = "Ability 5
-"
-horizontal_alignment = 1
+size_flags_horizontal = 4
+text = "Weapon"
+icon = ExtResource("4_5ri0k")
+alignment = 0
+icon_alignment = 1
+vertical_icon_alignment = 0
+expand_icon = true
 
 [node name="VBoxContainer" type="VBoxContainer" parent="SubViewportContainer/SubViewport/BattleHUD/HunterBattleHUD/Equipped/VBoxContainer/AbilitiesItemsUI" unique_id=1790710817]
 layout_mode = 2
@@ -377,4 +356,9 @@ text = "Continue
 
 [connection signal="pressed" from="SubViewportContainer/SubViewport/BattleHUD/PreBattleHUD/StartBattleButton" to="SubViewportContainer/SubViewport/BattleHUD" method="_on_start_battle_button_pressed"]
 [connection signal="pressed" from="SubViewportContainer/SubViewport/BattleHUD/HunterBattleHUD/Equipped/VBoxContainer/EndTurnButton" to="SubViewportContainer/SubViewport/BattleHUD" method="_on_end_turn_button_pressed"]
+[connection signal="pressed" from="SubViewportContainer/SubViewport/BattleHUD/HunterBattleHUD/Equipped/VBoxContainer/AbilitiesItemsUI/AbilityPanel/Abilities/Ability1Button" to="SubViewportContainer/SubViewport/BattleHUD/AbilityTargeting" method="_on_ability_1_button_pressed"]
+[connection signal="pressed" from="SubViewportContainer/SubViewport/BattleHUD/HunterBattleHUD/Equipped/VBoxContainer/AbilitiesItemsUI/AbilityPanel/Abilities/Ability2Button" to="SubViewportContainer/SubViewport/BattleHUD/AbilityTargeting" method="_on_ability_2_button_pressed"]
+[connection signal="pressed" from="SubViewportContainer/SubViewport/BattleHUD/HunterBattleHUD/Equipped/VBoxContainer/AbilitiesItemsUI/AbilityPanel/Abilities/Ability3Button" to="SubViewportContainer/SubViewport/BattleHUD/AbilityTargeting" method="_on_ability_3_button_pressed"]
+[connection signal="pressed" from="SubViewportContainer/SubViewport/BattleHUD/HunterBattleHUD/Equipped/VBoxContainer/AbilitiesItemsUI/AbilityPanel/Abilities/Ability4Button" to="SubViewportContainer/SubViewport/BattleHUD/AbilityTargeting" method="_on_ability_4_button_pressed"]
+[connection signal="pressed" from="SubViewportContainer/SubViewport/BattleHUD/HunterBattleHUD/Equipped/VBoxContainer/AbilitiesItemsUI/AbilityPanel/Abilities/WeaponButton" to="SubViewportContainer/SubViewport/BattleHUD/AbilityTargeting" method="_on_weapon_button_pressed"]
 [connection signal="pressed" from="SubViewportContainer/SubViewport/BattleHUD/PostBattleHUD/VBoxContainer/Continue" to="SubViewportContainer/SubViewport/BattleHUD/PostBattleHUD" method="_on_continue_pressed"]
