@@ -4,18 +4,18 @@ class_name BattleManager
 # character variables
 @export var hunters : Array[CharacterResource]
 @export var enemies : Array[CharacterResource]
+@export var hunter_nodes : Array[Character]
+@export var enemy_nodes : Array[Character]
 
-var character_res : Array[CharacterResource]
-var character_nodes : Array[Character]
+var character_turn_order : Array[Character]
 
 # external functions
 @export var initialize_characters : InitializeCharacters
 @export var focus_camera : FocusCamera
+@export var auto_enemies_turn : AutoEnemiesTurn
 
 # turn variables
 var current_character_turn : int = -1
-var enemies_start_e : int
-var focused_char_res : CharacterResource = null
 var focused_char_node : Character = null
 
 var battle_finished : bool = false
@@ -27,17 +27,16 @@ func battle_start() -> void:
 func clean_out_dead() -> void:
 	print("Before cleaning")
 	print(current_character_turn)
-	print(character_res)
-	var dyn_char_arr_size : int = character_res.size()-1
+
+	var dyn_char_arr_size : int = character_turn_order.size()-1
 	var i : int = 0
 	
 	# removing dead
 	while(i<=dyn_char_arr_size):
-		if character_res[i].dead:
+		if character_turn_order[i].character_res.dead:
 			print("Character @ " + str(i) + " is dead. Being removed")
 			dyn_char_arr_size -= 1
-			character_res.remove_at(i)
-			character_nodes.remove_at(i)
+			character_turn_order.remove_at(i)
 			if(i <= current_character_turn):
 				current_character_turn -= 1
 			i -= 1
@@ -46,15 +45,15 @@ func clean_out_dead() -> void:
 	#checking if there is a winner	
 	var all_hunters_dead : bool = true
 	var all_enemies_dead : bool = true
-	for j : int in character_res.size():
-		if character_res[j].enemy:
+	for j : int in character_turn_order.size():
+		if character_turn_order[j].character_res.enemy:
 			all_enemies_dead = false
 		else:
 			all_hunters_dead = false
 	
 	print("After cleaning")
 	print(current_character_turn)
-	print(character_res)
+
 	print("Are hunters dead:")
 	print(all_hunters_dead)
 	print("Are enemies dead:")
@@ -79,10 +78,9 @@ func incr_turn() -> void:
 	
 	clean_out_dead()
 	
-	if focused_char_node and focused_char_res:
+	if focused_char_node:
 			focused_char_node.focus_toggle()
 			
-			focused_char_res = null
 			focused_char_node = null
 	
 	if !battle_finished:
@@ -91,22 +89,37 @@ func incr_turn() -> void:
 		
 		current_character_turn += 1
 		
-		if current_character_turn > character_res.size()-1:
+		if current_character_turn > character_turn_order.size()-1:
 			current_character_turn = -1
 			incr_turn()
 		else:
-			focused_char_res = character_res[current_character_turn]
-			focused_char_node = character_nodes[current_character_turn]
+			
+			focused_char_node = character_turn_order[current_character_turn]
 			focused_char_node.focus_toggle()
-			focus_camera.change_transform(focused_char_node.global_position, character_res[current_character_turn].enemy)
+			focus_camera.change_transform(focused_char_node.global_position, character_turn_order[current_character_turn].character_res.enemy)
+		if(focused_char_node.character_res.enemy):
+			auto_enemies_turn.play_enemy_turn(self, focused_char_node)
+
+# sorting by character dex desc
+func set_turn_order() -> void:
+	var temp : Array[Character]
+	temp.append_array(hunter_nodes)
+	temp.append_array(enemy_nodes)
+	
+	var max_dex_char_i : int
+	while temp.size():
+		var max_dex : int = -1
+		for i : int in temp.size():
+			if temp[i].character_res.dexterity > max_dex:
+				max_dex = temp[i].character_res.dexterity
+				max_dex_char_i = i
+		var max_dex_char : Character = temp.pop_at(max_dex_char_i)
+		character_turn_order.append(max_dex_char)
+	
+	print("turn order set: ", character_turn_order)
 
 func _ready() -> void:
-	for i : int in hunters.size():
-		character_res.append(hunters[i])
-	for i : int in enemies.size():
-		character_res.append(enemies[i])
+	hunter_nodes = initialize_characters.initialize(hunters, true)
+	enemy_nodes = initialize_characters.initialize(enemies, false)
 	
-	character_nodes.append_array(initialize_characters.initialize(hunters, true))
-	character_nodes.append_array(initialize_characters.initialize(enemies, false))
-	print("chararacter resources loaded: ", str(character_res))
-	print("chararacter nodes loaded: ", str(character_nodes))
+	set_turn_order()

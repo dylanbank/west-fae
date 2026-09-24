@@ -23,7 +23,7 @@ func _ready() -> void:
 	post_battle_hud.hide()
 	
 func _process(_delta: float) -> void:
-	if battle_manager.focused_char_node and battle_manager.focused_char_res:
+	if battle_manager.focused_char_node and !battle_manager.focused_char_node.character_res.enemy:
 		hunter_battle_hud.show()
 	else:
 		hunter_battle_hud.hide()

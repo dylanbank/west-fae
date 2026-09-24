@@ -14,6 +14,7 @@
 [ext_resource type="Script" uid="uid://ccsc04mn0ft87" path="res://hunts/battles/ui/hud.gd" id="9_4jpop"]
 [ext_resource type="Resource" uid="uid://dkyq72u0skxts" path="res://characters/enemies/joe/joe.tres" id="9_lvofu"]
 [ext_resource type="Resource" uid="uid://cmswkvipjjmx8" path="res://characters/enemies/peter_thiel/peter_thiel.tres" id="10_5kl7h"]
+[ext_resource type="Script" uid="uid://dormn2qpdhn3f" path="res://hunts/battles/code_blocks/auto_enemies_turn.gd" id="11_5kl7h"]
 [ext_resource type="Script" uid="uid://dtt1mjx25eavp" path="res://hunts/battles/ui/code_blocks/update_abilities.gd" id="14_gjv5l"]
 [ext_resource type="Script" uid="uid://dwka73no1kxe8" path="res://hunts/battles/ui/code_blocks/ability_targeting.gd" id="14_lvofu"]
 [ext_resource type="Script" uid="uid://7234j5hco1em" path="res://hunts/battles/ui/post_battle_hud.gd" id="15_dnhfs"]
@@ -27,12 +28,16 @@ size = Vector3(20, 1, 20)
 
 [node name="Battle" type="Node3D" unique_id=1382295604]
 
-[node name="BattleManager" type="Node" parent="." unique_id=753362522 node_paths=PackedStringArray("initialize_characters", "focus_camera")]
+[node name="BattleManager" type="Node" parent="." unique_id=753362522 node_paths=PackedStringArray("initialize_characters", "focus_camera", "auto_enemies_turn")]
 script = ExtResource("1_7r4xy")
 hunters = Array[ExtResource("4_4jpop")]([ExtResource("3_62ji6"), ExtResource("4_3y2ad"), ExtResource("5_dnhfs"), ExtResource("6_gjv5l")])
 enemies = Array[ExtResource("4_4jpop")]([ExtResource("4_ohvvp"), ExtResource("8_k8dur"), ExtResource("9_lvofu"), ExtResource("10_5kl7h")])
 initialize_characters = NodePath("InitializeCharacters")
 focus_camera = NodePath("FocusCamera")
+auto_enemies_turn = NodePath("AutoEnemiesTurn")
+
+[node name="AutoEnemiesTurn" type="Node" parent="BattleManager" unique_id=1962637205]
+script = ExtResource("11_5kl7h")
 
 [node name="InitializeCharacters" type="Node" parent="BattleManager" unique_id=38291079 node_paths=PackedStringArray("hunter_p_mats", "enemy_p_mats")]
 script = ExtResource("6_ohvvp")
@@ -43,7 +48,7 @@ enemy_p_mats = [NodePath("../../EnemyPlacements/EnemyMat1"), NodePath("../../Ene
 script = ExtResource("8_62ji6")
 camera = NodePath("../../SubViewportContainer/SubViewport/Camera3D")
 init_position = Vector3(-0.75, 2, 7.832)
-position_offset = Vector3(1, 1, 3)
+position_offset = Vector3(1.5, 1, 3)
 y_angle = -16.0
 lerp_weight = 3.0
 

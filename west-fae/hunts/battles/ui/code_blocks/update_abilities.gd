@@ -17,8 +17,8 @@ class_name UpdateAbilities
 @export var error_label : String
 
 func _process(delta: float) -> void:
-	if battle_manager.focused_char_res:
-		var current_char : CharacterResource = battle_manager.focused_char_res
+	if battle_manager.focused_char_node:
+		var current_char : CharacterResource = battle_manager.focused_char_node.character_res
 		if current_char.equipped_abilities:
 			current_abilities = current_char.equipped_abilities
 			if current_abilities[0]:
