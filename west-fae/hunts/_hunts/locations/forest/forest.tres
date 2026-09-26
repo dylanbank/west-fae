@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="HuntResource" format=3 uid="uid://cuofcetlkebjm"]
+
+[ext_resource type="PackedScene" uid="uid://bcipv8hrppcm8" path="res://hunts/_hunts/locations/forest/Forest.tscn" id="1_00ynh"]
+[ext_resource type="Script" uid="uid://d0mmi3f8nb5yb" path="res://hunts/_hunts/hunt_res.gd" id="1_wtitd"]
+
+[resource]
+script = ExtResource("1_wtitd")
+name = "Penix Forest"
+descr = "Forest north of Fae"
+location = ExtResource("1_00ynh")
+metadata/_custom_type_script = "uid://d0mmi3f8nb5yb"

@@ -7,6 +7,9 @@ class_name BattleHUD
 @export var hunter_battle_hud : MarginContainer
 @export var post_battle_hud : Panel
 
+# external functions
+@export var ability_targeting : AbilityTargeting
+
 func _on_start_battle_button_pressed() -> void:
 	battle_manager.battle_start()
 	
@@ -15,7 +18,9 @@ func _on_start_battle_button_pressed() -> void:
 	post_battle_hud.hide()
 
 func _on_end_turn_button_pressed() -> void:
+	ability_targeting.cancel_target()
 	battle_manager.incr_turn()
+	
 
 func _ready() -> void:
 	pre_battle_hud.show()

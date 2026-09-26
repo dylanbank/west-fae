@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://btl3b8uvey43g"]
+
+[ext_resource type="PackedScene" uid="uid://nwculwc1d4n7" path="res://hunts/battles/battle.tscn" id="1_d45ib"]
+[ext_resource type="Resource" uid="uid://cuofcetlkebjm" path="res://hunts/_hunts/locations/forest/forest.tres" id="2_3bx88"]
+[ext_resource type="Script" uid="uid://ddlneyjway701" path="res://hunts/_hunts/code_blocks/hunt_manager.gd" id="2_62x3n"]
+[ext_resource type="Script" uid="uid://bxqc5m3bntx82" path="res://hunts/_hunts/code_blocks/initialize_hunt.gd" id="3_3bx88"]
+[ext_resource type="PackedScene" uid="uid://bcipv8hrppcm8" path="res://hunts/_hunts/locations/forest/Forest.tscn" id="3_lwgce"]
+
+[sub_resource type="Environment" id="Environment_6sj1v"]
+
+[node name="Hunt" type="Node3D" unique_id=1957039178]
+
+[node name="HuntManager" type="Node" parent="." unique_id=2093225704]
+script = ExtResource("2_62x3n")
+hunt_res = ExtResource("2_3bx88")
+
+[node name="InitializeHunt" type="Node" parent="." unique_id=1773980386 node_paths=PackedStringArray("hunt_manager", "location", "battle")]
+script = ExtResource("3_3bx88")
+hunt_manager = NodePath("../HuntManager")
+location = NodePath("../Location")
+battle = NodePath("../Battle")
+
+[node name="Env" type="Node3D" parent="." unique_id=296247668]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Env" unique_id=427182267]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 493.9472, 0)
+light_color = Color(0.9999978, 0.9997243, 0.6423814, 1)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Env" unique_id=739027088]
+environment = SubResource("Environment_6sj1v")
+
+[node name="Battle" parent="." unique_id=1382295604 instance=ExtResource("1_d45ib")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33.46524, 1.4383669, 353.28558)
+
+[node name="Location" type="Node3D" parent="." unique_id=656164278]
+
+[node name="Forest" parent="Location" unique_id=1202853510 instance=ExtResource("3_lwgce")]

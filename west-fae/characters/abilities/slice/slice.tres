@@ -7,5 +7,7 @@
 script = ExtResource("1_jjgqh")
 name = "Slice"
 icon = ExtResource("1_5psxl")
+affected_pips = Array[int]([0])
+ally_targetting = true
 health_change = -5.0
 metadata/_custom_type_script = "uid://cfgwxyqyce0kf"

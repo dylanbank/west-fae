@@ -7,8 +7,6 @@ class_name ResourceBars
 
 func _ready() -> void:
 	resource_bars.health_progress_bar.max_value = character.character_res.max_health
-	print("character: ", character.character_res.name)
-	print("current health: ", character.character_res.current_health)
 
 func _process(delta: float) -> void:
 	resource_bars.health_progress_bar.value = character.character_res.current_health

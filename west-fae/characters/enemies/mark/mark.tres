@@ -4,8 +4,11 @@
 [ext_resource type="Script" uid="uid://dhm25anvaf4to" path="res://characters/items/base_item_res.gd" id="2_bp2ku"]
 [ext_resource type="Texture2D" uid="uid://chnlhq6y21n4n" path="res://icon.svg" id="2_dsus4"]
 [ext_resource type="Texture2D" uid="uid://brpm7gmar7mbx" path="res://skull_render.png" id="2_xydh2"]
+[ext_resource type="Resource" uid="uid://brb45u6spadl2" path="res://characters/abilities/arcane_stab/arcane_stab.tres" id="3_a8oj0"]
 [ext_resource type="Script" uid="uid://cg340kvj3ltnb" path="res://characters/_characters/character_res.gd" id="3_v1b8g"]
+[ext_resource type="Resource" uid="uid://dawci3b1548hm" path="res://characters/abilities/slice/slice.tres" id="4_p2n2c"]
 [ext_resource type="Texture2D" uid="uid://b84y8w3f7ee03" path="res://geeble_render.png" id="5_bpju4"]
+[ext_resource type="Resource" uid="uid://b6mnn7meedtyb" path="res://characters/abilities/size_up/size_up.tres" id="5_eha4s"]
 [ext_resource type="Script" uid="uid://i1wy4dntu1l2" path="res://hunts/statuses/status_res.gd" id="8_2ftlt"]
 
 [resource]
@@ -22,4 +25,5 @@ current_health = 30.0
 strength = 10.0
 dexterity = 9.0
 intelligence = 5.0
+equipped_abilities = [ExtResource("3_a8oj0"), ExtResource("4_p2n2c"), ExtResource("4_p2n2c"), ExtResource("5_eha4s")]
 metadata/_custom_type_script = "uid://cg340kvj3ltnb"

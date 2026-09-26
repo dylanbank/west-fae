@@ -1,7 +1,7 @@
-[gd_resource type="Resource" script_class="InstantAbilityResource" format=3 uid="uid://b6mnn7meedtyb"]
+[gd_resource type="Resource" script_class="SizeUpAbility" format=3 uid="uid://b6mnn7meedtyb"]
 
 [ext_resource type="Texture2D" uid="uid://chnlhq6y21n4n" path="res://icon.svg" id="1_4230s"]
-[ext_resource type="Script" uid="uid://dyibwiev5w0hy" path="res://characters/abilities/_ability_resources/instant_ability_res.gd" id="1_w14tx"]
+[ext_resource type="Script" uid="uid://5h8uby11tene" path="res://characters/abilities/size_up/size_up.gd" id="1_w14tx"]
 [ext_resource type="Resource" uid="uid://bbfm47qgkra3p" path="res://hunts/statuses/plated/plated.tres" id="3_5ayg0"]
 
 [resource]
@@ -9,5 +9,8 @@ script = ExtResource("1_w14tx")
 name = "Size Up"
 descr = "Hit all enemy units, increasing stacks of [INSERT STATUS 0]  depending on number of enemies hit.."
 icon = ExtResource("1_4230s")
+affected_pips = Array[int]([0, 1, 2, 3])
+hit_all = true
+health_change = -80.0
 status_to_apply_to_self = ExtResource("3_5ayg0")
-metadata/_custom_type_script = "uid://dyibwiev5w0hy"
+metadata/_custom_type_script = "uid://5h8uby11tene"

@@ -24,6 +24,6 @@ current_health = 100.0
 strength = 4.0
 dexterity = 10.0
 intelligence = 5.0
-equipped_abilities = [ExtResource("3_diurh"), ExtResource("4_ir71c"), ExtResource("5_tgkia"), ExtResource("5_tgkia")]
+equipped_abilities = [ExtResource("3_diurh"), ExtResource("5_tgkia"), ExtResource("5_tgkia"), ExtResource("4_ir71c")]
 equipped_weapon = ExtResource("3_diurh")
 metadata/_custom_type_script = "uid://cg340kvj3ltnb"

@@ -24,9 +24,31 @@ var battle_won : bool
 func battle_start() -> void:
 	incr_turn()
 
+# called by AbilityTargeting after an ability is casted.
+func check_if_battle_over() -> void:
+	#checking if there is a winner	
+	var all_hunters_dead : bool = true
+	var all_enemies_dead : bool = true
+	for j : int in character_turn_order.size():
+		if character_turn_order[j].character_res.enemy:
+			all_enemies_dead = false
+		else:
+			all_hunters_dead = false
+	
+	# checking if the battle is over and who won
+	# if botgh are dead, hunters still win
+	if all_enemies_dead or all_hunters_dead:
+		print("Battle over")
+		battle_finished = true
+		if all_hunters_dead:
+			battle_won = false
+			# ENEMIES WIN
+		elif all_enemies_dead:
+			battle_won = true
+			# HUNTERS WIN
+
+# called by AbilityTargeting after an ability is casted.
 func clean_out_dead() -> void:
-	print("Before cleaning")
-	print(current_character_turn)
 
 	var dyn_char_arr_size : int = character_turn_order.size()-1
 	var i : int = 0
@@ -41,42 +63,11 @@ func clean_out_dead() -> void:
 				current_character_turn -= 1
 			i -= 1
 		i += 1
-		
-	#checking if there is a winner	
-	var all_hunters_dead : bool = true
-	var all_enemies_dead : bool = true
-	for j : int in character_turn_order.size():
-		if character_turn_order[j].character_res.enemy:
-			all_enemies_dead = false
-		else:
-			all_hunters_dead = false
-	
-	print("After cleaning")
-	print(current_character_turn)
-
-	print("Are hunters dead:")
-	print(all_hunters_dead)
-	print("Are enemies dead:")
-	print(all_enemies_dead)
-	
-	# checking if the battle is over and who won
-	# if botgh are dead, hunters still win
-	if all_enemies_dead or all_hunters_dead:
-		battle_finished = true
-		if all_hunters_dead:
-			battle_won = false
-			# ENEMIES WIN
-		elif all_enemies_dead:
-			battle_won = true
-			# HUNTERS WIN
-		
-		
-	
 
 func incr_turn() -> void:
 	# loop through nodes to call end of turn status effect module on each character node
 	
-	clean_out_dead()
+	#clean_out_dead()
 	
 	if focused_char_node:
 			focused_char_node.focus_toggle()
@@ -96,9 +87,9 @@ func incr_turn() -> void:
 			
 			focused_char_node = character_turn_order[current_character_turn]
 			focused_char_node.focus_toggle()
-			focus_camera.change_transform(focused_char_node.global_position, character_turn_order[current_character_turn].character_res.enemy)
+			focus_camera.change_transform(focused_char_node.position, character_turn_order[current_character_turn].character_res.enemy)
 		if(focused_char_node.character_res.enemy):
-			auto_enemies_turn.play_enemy_turn(self, focused_char_node)
+			auto_enemies_turn.play_enemy_turn(self)
 
 # sorting by character dex desc
 func set_turn_order() -> void:

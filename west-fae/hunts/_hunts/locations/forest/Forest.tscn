@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://bcipv8hrppcm8"]
+
+[ext_resource type="PackedScene" uid="uid://cxvsuiceo5gc" path="res://hunts/_hunts/locations/forest/ForestOfPenix.glb" id="1_6da0l"]
+
+[node name="Forest" type="Node3D" unique_id=1202853510]
+
+[node name="ForestOfPenix" parent="." unique_id=233546809 instance=ExtResource("1_6da0l")]

@@ -13,7 +13,7 @@ var new_cam_pos : Vector3
 var new_cam_rot : float
 
 func change_transform(focus_char_pos : Vector3, return_to_init_pos : bool) -> void:
-	
+	print(focus_char_pos)
 	if(!return_to_init_pos):
 		new_cam_pos = focus_char_pos + position_offset
 		new_cam_rot = y_angle
@@ -26,5 +26,6 @@ func _process(delta: float) -> void:
 	camera.rotation_degrees.y = lerp(camera.rotation_degrees.y, new_cam_rot, lerp_weight * delta)
 	
 func _ready() -> void:
+	
 	new_cam_pos = init_position
 	new_cam_rot = init_y_angle

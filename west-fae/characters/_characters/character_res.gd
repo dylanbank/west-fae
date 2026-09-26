@@ -25,3 +25,4 @@ class_name CharacterResource
 @export var equipped_items : Array[BaseItemResource]
 
 @export var dead : bool = false
+	
