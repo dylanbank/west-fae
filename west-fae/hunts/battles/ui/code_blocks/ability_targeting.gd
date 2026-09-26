@@ -37,7 +37,6 @@ func try_use_ability() -> void:
 		targeting_ability.use(caster, targeted_chars)
 	cancel_target()
 	battle_manager.clean_out_dead()
-	battle_manager.check_if_battle_over() 
 			
 
 func cancel_target() -> void:
@@ -110,3 +109,4 @@ func _unhandled_input(event: InputEvent) -> void:
 		cancel_target()
 	if event.is_action_released("lmb") and active_targeting and !battle_manager.focused_char_node.character_res.enemy:
 		try_use_ability()
+		battle_manager.check_if_battle_over() 

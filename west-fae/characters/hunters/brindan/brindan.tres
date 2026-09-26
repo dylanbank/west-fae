@@ -2,21 +2,21 @@
 
 [ext_resource type="PackedScene" uid="uid://iahqrc7o1224" path="res://characters/_characters/Character.tscn" id="1_w710p"]
 [ext_resource type="Script" uid="uid://dhm25anvaf4to" path="res://characters/items/base_item_res.gd" id="2_6s1wr"]
-[ext_resource type="Texture2D" uid="uid://brpm7gmar7mbx" path="res://skull_render.png" id="2_q5gn2"]
+[ext_resource type="Texture2D" uid="uid://bfa5vm4vgmd3r" path="res://Geeble.svg" id="2_uhcyp"]
 [ext_resource type="Script" uid="uid://cg340kvj3ltnb" path="res://characters/_characters/character_res.gd" id="3_qfkqa"]
 [ext_resource type="Resource" uid="uid://brb45u6spadl2" path="res://characters/abilities/arcane_stab/arcane_stab.tres" id="3_uhcyp"]
 [ext_resource type="Resource" uid="uid://dawci3b1548hm" path="res://characters/abilities/slice/slice.tres" id="4_goc31"]
 [ext_resource type="Resource" uid="uid://b6mnn7meedtyb" path="res://characters/abilities/size_up/size_up.tres" id="5_d31xl"]
-[ext_resource type="Texture2D" uid="uid://b84y8w3f7ee03" path="res://geeble_render.png" id="5_gn3lg"]
 [ext_resource type="Texture2D" uid="uid://chnlhq6y21n4n" path="res://icon.svg" id="6_uhcyp"]
+[ext_resource type="Texture2D" uid="uid://bbhipcdkjmm1e" path="res://burntpeanut.svg" id="7_goc31"]
 [ext_resource type="Script" uid="uid://i1wy4dntu1l2" path="res://hunts/statuses/status_res.gd" id="8_q5gn2"]
 
 [resource]
 script = ExtResource("3_qfkqa")
 name = "Brindan"
 idle_sprite = ExtResource("6_uhcyp")
-hit_sprite = ExtResource("5_gn3lg")
-dead_sprite = ExtResource("2_q5gn2")
+hit_sprite = ExtResource("7_goc31")
+dead_sprite = ExtResource("2_uhcyp")
 character_node = ExtResource("1_w710p")
 base_health = 30.0
 max_health = 100.0

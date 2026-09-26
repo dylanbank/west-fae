@@ -2,21 +2,21 @@
 
 [ext_resource type="PackedScene" uid="uid://iahqrc7o1224" path="res://characters/_characters/Character.tscn" id="1_4wnpm"]
 [ext_resource type="Script" uid="uid://dhm25anvaf4to" path="res://characters/items/base_item_res.gd" id="2_clss0"]
-[ext_resource type="Texture2D" uid="uid://brpm7gmar7mbx" path="res://skull_render.png" id="2_kdagy"]
+[ext_resource type="Texture2D" uid="uid://bfa5vm4vgmd3r" path="res://Geeble.svg" id="2_g06fv"]
 [ext_resource type="Resource" uid="uid://brb45u6spadl2" path="res://characters/abilities/arcane_stab/arcane_stab.tres" id="3_g06fv"]
 [ext_resource type="Script" uid="uid://cg340kvj3ltnb" path="res://characters/_characters/character_res.gd" id="3_qn6vg"]
 [ext_resource type="Resource" uid="uid://dawci3b1548hm" path="res://characters/abilities/slice/slice.tres" id="4_1e88f"]
-[ext_resource type="Texture2D" uid="uid://b84y8w3f7ee03" path="res://geeble_render.png" id="5_5dulj"]
 [ext_resource type="Resource" uid="uid://b6mnn7meedtyb" path="res://characters/abilities/size_up/size_up.tres" id="5_lwr8n"]
 [ext_resource type="Texture2D" uid="uid://chnlhq6y21n4n" path="res://icon.svg" id="6_g06fv"]
+[ext_resource type="Texture2D" uid="uid://bbhipcdkjmm1e" path="res://burntpeanut.svg" id="7_1e88f"]
 [ext_resource type="Script" uid="uid://i1wy4dntu1l2" path="res://hunts/statuses/status_res.gd" id="8_kdagy"]
 
 [resource]
 script = ExtResource("3_qn6vg")
 name = "Jesus"
 idle_sprite = ExtResource("6_g06fv")
-hit_sprite = ExtResource("5_5dulj")
-dead_sprite = ExtResource("2_kdagy")
+hit_sprite = ExtResource("7_1e88f")
+dead_sprite = ExtResource("2_g06fv")
 character_node = ExtResource("1_4wnpm")
 base_health = 30.0
 max_health = 100.0

@@ -4,7 +4,6 @@
 [ext_resource type="Resource" uid="uid://cuofcetlkebjm" path="res://hunts/_hunts/locations/forest/forest.tres" id="2_3bx88"]
 [ext_resource type="Script" uid="uid://ddlneyjway701" path="res://hunts/_hunts/code_blocks/hunt_manager.gd" id="2_62x3n"]
 [ext_resource type="Script" uid="uid://bxqc5m3bntx82" path="res://hunts/_hunts/code_blocks/initialize_hunt.gd" id="3_3bx88"]
-[ext_resource type="PackedScene" uid="uid://bcipv8hrppcm8" path="res://hunts/_hunts/locations/forest/Forest.tscn" id="3_lwgce"]
 
 [sub_resource type="Environment" id="Environment_6sj1v"]
 
@@ -33,5 +32,3 @@ environment = SubResource("Environment_6sj1v")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33.46524, 1.4383669, 353.28558)
 
 [node name="Location" type="Node3D" parent="." unique_id=656164278]
-
-[node name="Forest" parent="Location" unique_id=1202853510 instance=ExtResource("3_lwgce")]

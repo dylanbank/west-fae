@@ -1,14 +1,14 @@
 [gd_resource type="Resource" script_class="CharacterResource" format=3 uid="uid://cmswkvipjjmx8"]
 
 [ext_resource type="PackedScene" uid="uid://iahqrc7o1224" path="res://characters/_characters/Character.tscn" id="1_3bop7"]
+[ext_resource type="Texture2D" uid="uid://bfa5vm4vgmd3r" path="res://Geeble.svg" id="2_0s81o"]
 [ext_resource type="Script" uid="uid://dhm25anvaf4to" path="res://characters/items/base_item_res.gd" id="2_kyvbu"]
-[ext_resource type="Texture2D" uid="uid://brpm7gmar7mbx" path="res://skull_render.png" id="2_y4yip"]
 [ext_resource type="Resource" uid="uid://brb45u6spadl2" path="res://characters/abilities/arcane_stab/arcane_stab.tres" id="3_0s81o"]
 [ext_resource type="Script" uid="uid://cg340kvj3ltnb" path="res://characters/_characters/character_res.gd" id="3_egbqb"]
 [ext_resource type="Resource" uid="uid://dawci3b1548hm" path="res://characters/abilities/slice/slice.tres" id="4_dbve2"]
 [ext_resource type="Resource" uid="uid://b6mnn7meedtyb" path="res://characters/abilities/size_up/size_up.tres" id="5_f8p3h"]
-[ext_resource type="Texture2D" uid="uid://b84y8w3f7ee03" path="res://geeble_render.png" id="5_ll0g2"]
 [ext_resource type="Texture2D" uid="uid://chnlhq6y21n4n" path="res://icon.svg" id="6_0s81o"]
+[ext_resource type="Texture2D" uid="uid://bbhipcdkjmm1e" path="res://burntpeanut.svg" id="7_dbve2"]
 [ext_resource type="Script" uid="uid://i1wy4dntu1l2" path="res://hunts/statuses/status_res.gd" id="8_y4yip"]
 
 [resource]
@@ -16,8 +16,8 @@ script = ExtResource("3_egbqb")
 name = "Peter Thiel"
 enemy = true
 idle_sprite = ExtResource("6_0s81o")
-hit_sprite = ExtResource("5_ll0g2")
-dead_sprite = ExtResource("2_y4yip")
+hit_sprite = ExtResource("7_dbve2")
+dead_sprite = ExtResource("2_0s81o")
 character_node = ExtResource("1_3bop7")
 base_health = 30.0
 max_health = 100.0

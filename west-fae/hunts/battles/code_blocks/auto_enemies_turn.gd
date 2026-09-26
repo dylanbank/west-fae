@@ -20,7 +20,7 @@ func play_enemy_turn(battle_manager : BattleManager) -> void:
 		
 	
 	await get_tree().create_timer(2).timeout
-	
-	
-	battle_manager.incr_turn()
+	battle_manager.check_if_battle_over() 
+	if !battle_manager.battle_finished:
+		battle_manager.incr_turn()
 	

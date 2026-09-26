@@ -1,22 +1,22 @@
 [gd_resource type="Resource" script_class="CharacterResource" format=3 uid="uid://bcwcp46jvtxbq"]
 
 [ext_resource type="PackedScene" uid="uid://iahqrc7o1224" path="res://characters/_characters/Character.tscn" id="1_iqi5v"]
-[ext_resource type="Texture2D" uid="uid://brpm7gmar7mbx" path="res://skull_render.png" id="2_dmp68"]
+[ext_resource type="Texture2D" uid="uid://bfa5vm4vgmd3r" path="res://Geeble.svg" id="2_b6tv5"]
 [ext_resource type="Script" uid="uid://dhm25anvaf4to" path="res://characters/items/base_item_res.gd" id="2_qu7d2"]
 [ext_resource type="Resource" uid="uid://brb45u6spadl2" path="res://characters/abilities/arcane_stab/arcane_stab.tres" id="3_b6tv5"]
 [ext_resource type="Script" uid="uid://cg340kvj3ltnb" path="res://characters/_characters/character_res.gd" id="3_qyj2h"]
 [ext_resource type="Resource" uid="uid://dawci3b1548hm" path="res://characters/abilities/slice/slice.tres" id="4_u3hbv"]
-[ext_resource type="Texture2D" uid="uid://b84y8w3f7ee03" path="res://geeble_render.png" id="5_jsqxb"]
 [ext_resource type="Resource" uid="uid://b6mnn7meedtyb" path="res://characters/abilities/size_up/size_up.tres" id="5_kbux8"]
 [ext_resource type="Texture2D" uid="uid://chnlhq6y21n4n" path="res://icon.svg" id="6_b6tv5"]
+[ext_resource type="Texture2D" uid="uid://bbhipcdkjmm1e" path="res://burntpeanut.svg" id="7_u3hbv"]
 [ext_resource type="Script" uid="uid://i1wy4dntu1l2" path="res://hunts/statuses/status_res.gd" id="8_dmp68"]
 
 [resource]
 script = ExtResource("3_qyj2h")
 name = "K3Soju"
 idle_sprite = ExtResource("6_b6tv5")
-hit_sprite = ExtResource("5_jsqxb")
-dead_sprite = ExtResource("2_dmp68")
+hit_sprite = ExtResource("7_u3hbv")
+dead_sprite = ExtResource("2_b6tv5")
 character_node = ExtResource("1_iqi5v")
 base_health = 30.0
 max_health = 100.0

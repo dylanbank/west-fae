@@ -8,4 +8,4 @@ class_name InitializeHunt
 func _ready() -> void:
 	var loc_inst : Node3D = hunt_manager.hunt_res.location.instantiate()
 	location.add_child(loc_inst)
-	battle.reparent(location)
+	battle.call_deferred("reparent", location)

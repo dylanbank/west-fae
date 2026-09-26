@@ -32,7 +32,7 @@ func focus_toggle() -> void:
 		
 func calc_hit_time(dmg_amt : float) -> float:
 	var perc_of_health : float = dmg_amt / character_res.current_health
-	return perc_of_health * hit_time_scale
+	return min(perc_of_health * hit_time_scale, 3.0)
 
 func change_health(raw_dmg_amt : float) -> void:
 	

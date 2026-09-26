@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="ArcaneStabAbility" format=3 uid="uid://brb45u6spadl2"]
 
-[ext_resource type="Texture2D" uid="uid://b84y8w3f7ee03" path="res://geeble_render.png" id="1_7e6m3"]
+[ext_resource type="Texture2D" uid="uid://brpm7gmar7mbx" path="res://skull_render.png" id="1_7e6m3"]
 [ext_resource type="Script" uid="uid://boy7lbq6jnr1i" path="res://characters/abilities/arcane_stab/arcane_stab.gd" id="1_pdt47"]
 [ext_resource type="Resource" uid="uid://c848rnmhu6op6" path="res://hunts/statuses/bleed/bleed.tres" id="3_jy0qj"]
 
