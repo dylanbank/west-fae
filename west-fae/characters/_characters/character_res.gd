@@ -18,11 +18,11 @@ class_name CharacterResource
 @export var instinct : float
 #@export var charisma : float
 
-@export var statuses : Array[StatusResource]
+@export_custom(PROPERTY_HINT_RESOURCE_TYPE, "StatusResource") var statuses : Array = []
 
-@export_custom(PROPERTY_HINT_RESOURCE_TYPE, "BaseAbilityResource") var equipped_abilities : Array
+@export_custom(PROPERTY_HINT_RESOURCE_TYPE, "BaseAbilityResource") var equipped_abilities : Array = []
 @export var equipped_weapon : BaseAbilityResource
-@export var equipped_items : Array[BaseItemResource]
+@export var equipped_items : Array[BaseItemResource] = []
 
 @export var dead : bool = false
 	

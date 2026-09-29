@@ -5,6 +5,7 @@
 [ext_resource type="Resource" uid="uid://c848rnmhu6op6" path="res://hunts/statuses/bleed/bleed.tres" id="3_jy0qj"]
 
 [resource]
+resource_local_to_scene = true
 script = ExtResource("1_pdt47")
 name = "Arcane Stab"
 descr = "Stab the enemy and apply [INSERT R STATUS 0]."

@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://4p55e8fceool"]
+
+[ext_resource type="Script" uid="uid://bnkfhxro1wp8a" path="res://hunts/battles/ui/status_icons/status_icon.gd" id="1_uni4m"]
+[ext_resource type="Texture2D" uid="uid://chnlhq6y21n4n" path="res://icon.svg" id="2_e03xt"]
+
+[node name="StatusIcon" type="Control" unique_id=257659439 node_paths=PackedStringArray("texture", "stack_nbr")]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 128.0
+offset_bottom = 128.0
+size_flags_horizontal = 0
+size_flags_vertical = 8
+script = ExtResource("1_uni4m")
+texture = NodePath("StatusIcon")
+stack_nbr = NodePath("StatusIcon/StackNbrLabel")
+
+[node name="StatusIcon" type="TextureRect" parent="." unique_id=2061553258]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_e03xt")
+expand_mode = 2
+
+[node name="StackNbrLabel" type="Label" parent="StatusIcon" unique_id=1093119513]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -14.0
+offset_top = -12.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 28
+text = "100"
+horizontal_alignment = 2

@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://brpm7gmar7mbx" path="res://skull_render.png" id="2_stxxo"]
 
 [resource]
+resource_local_to_scene = true
 script = ExtResource("1_ghsof")
 name = "Burn"
 status_icon = ExtResource("2_stxxo")

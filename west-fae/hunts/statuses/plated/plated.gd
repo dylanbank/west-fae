@@ -1,4 +1,4 @@
-extends DmgMitStatusResource
+extends IncDmgStatusResource
 class_name Plated
 
 func mitigate_damage(i_dmg : float) -> float:

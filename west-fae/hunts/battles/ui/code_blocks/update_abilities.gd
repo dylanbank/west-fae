@@ -16,7 +16,7 @@ class_name UpdateAbilities
 @export var error_texture : Texture
 @export var error_label : String
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if battle_manager.focused_char_node:
 		var current_char : CharacterResource = battle_manager.focused_char_node.character_res
 		if current_char.equipped_abilities:

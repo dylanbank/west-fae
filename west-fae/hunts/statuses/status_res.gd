@@ -5,5 +5,5 @@ class_name StatusResource
 @export var status_icon : Texture2D
 @export var stacks : int
 
-func effect(holder : CharacterResource) -> void:
+func effect(_holder : CharacterResource) -> void:
 	print("Please create child class extending from status resource")

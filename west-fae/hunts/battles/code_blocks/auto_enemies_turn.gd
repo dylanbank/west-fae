@@ -14,7 +14,6 @@ func play_enemy_turn(battle_manager : BattleManager) -> void:
 	
 	if enemy_abilities:
 		var ability_to_use : BaseAbilityResource = enemy_abilities[random_ability]
-		var targeted_hunters : Array[Character]
 		
 		ability_targeting.target(ability_to_use) # start targeting
 		

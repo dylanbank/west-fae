@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bbhipcdkjmm1e" path="res://burntpeanut.svg" id="2_0xs3v"]
 
 [resource]
+resource_local_to_scene = true
 script = ExtResource("1_8fc4j")
 name = "Pepped"
 status_icon = ExtResource("2_0xs3v")

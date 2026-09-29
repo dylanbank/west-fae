@@ -4,10 +4,10 @@
 [ext_resource type="Script" uid="uid://cfgwxyqyce0kf" path="res://characters/abilities/slice/slice.gd" id="1_jjgqh"]
 
 [resource]
+resource_local_to_scene = true
 script = ExtResource("1_jjgqh")
 name = "Slice"
 icon = ExtResource("1_5psxl")
 affected_pips = Array[int]([0])
-ally_targetting = true
 health_change = -5.0
 metadata/_custom_type_script = "uid://cfgwxyqyce0kf"

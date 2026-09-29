@@ -1,6 +1,6 @@
 extends InstantAbilityResource
-class_name SliceAbility
+class_name HealAbility
 
 func use(_caster : Character, target_chars : Array[Character]) -> void:
-	for character in target_chars:
-		character.change_health(health_change)
+	for target in target_chars:
+		target.change_health(health_change)

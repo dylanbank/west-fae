@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="HealAbility" format=3 uid="uid://cdgb4fjwtbomg"]
+
+[ext_resource type="Texture2D" uid="uid://chnlhq6y21n4n" path="res://icon.svg" id="1_0bsgm"]
+[ext_resource type="Script" uid="uid://c17li0kcbwqgn" path="res://characters/abilities/heal/heal.gd" id="1_w81nt"]
+
+[resource]
+resource_local_to_scene = true
+script = ExtResource("1_w81nt")
+name = "Heal"
+descr = "Heal your party"
+icon = ExtResource("1_0bsgm")
+affected_pips = Array[int]([0, 1, 2, 3])
+ally_targetting = true
+hit_all = true
+health_change = 10.0
+metadata/_custom_type_script = "uid://c17li0kcbwqgn"

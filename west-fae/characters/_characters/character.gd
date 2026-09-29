@@ -2,6 +2,9 @@ extends CharacterBody3D
 class_name Character
 
 @export var character_res = CharacterResource
+
+@export var status_icon_display : StatusIcons
+
 @export var hit_time_scale : float = 2.0
 @export var hit_distance_scale : float = 2.0
 
@@ -47,13 +50,17 @@ func change_health(raw_dmg_amt : float) -> void:
 		character_res.dead = true
 	
 func add_status(status_to_add : StatusResource) -> void:
-	var add_existing_stacks : bool = true
+	print(status_to_add)
+	var add_existing_stacks : bool = false
 	for current_status in character_res.statuses:
-		if current_status.name == status_to_add.name:
+		if current_status.get_script().get_global_name() == status_to_add.get_script().get_global_name():
 			current_status.stacks += status_to_add.stacks
-			add_existing_stacks = false
-	if add_existing_stacks:
+			add_existing_stacks = true
+			print("adding to existing stack of status")
+	if !add_existing_stacks:
 		character_res.statuses.append(status_to_add)
+		status_icon_display.add_status_icon(status_to_add)
+		print("append status")
 
 func _on_timer_timeout() -> void:
 	if character_res.dead:

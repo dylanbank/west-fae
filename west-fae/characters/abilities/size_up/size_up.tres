@@ -5,12 +5,13 @@
 [ext_resource type="Resource" uid="uid://bbfm47qgkra3p" path="res://hunts/statuses/plated/plated.tres" id="3_5ayg0"]
 
 [resource]
+resource_local_to_scene = true
 script = ExtResource("1_w14tx")
 name = "Size Up"
 descr = "Hit all enemy units, increasing stacks of [INSERT STATUS 0]  depending on number of enemies hit.."
 icon = ExtResource("1_4230s")
 affected_pips = Array[int]([0, 1, 2, 3])
 hit_all = true
-health_change = -80.0
+health_change = -5.0
 status_to_apply_to_self = ExtResource("3_5ayg0")
 metadata/_custom_type_script = "uid://5h8uby11tene"

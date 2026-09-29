@@ -34,8 +34,13 @@ script = ExtResource("1_7r4xy")
 hunters = Array[ExtResource("4_4jpop")]([ExtResource("3_62ji6"), ExtResource("4_3y2ad"), ExtResource("5_dnhfs"), ExtResource("6_gjv5l")])
 enemies = Array[ExtResource("4_4jpop")]([ExtResource("4_ohvvp"), ExtResource("8_k8dur"), ExtResource("9_lvofu"), ExtResource("10_5kl7h")])
 initialize_characters = NodePath("InitializeCharacters")
-focus_camera = NodePath("FocusCamera")
+focus_camera = NodePath("DynamicCamera")
 auto_enemies_turn = NodePath("AutoEnemiesTurn")
+
+[node name="CursorInteract" type="Node3D" parent="BattleManager" unique_id=1686089928 node_paths=PackedStringArray("cam")]
+transform = Transform3D(1, 0, 0, 0, 0.97951615, 0.20136568, 0, -0.20136568, 0.97951615, -0.75, 2, 7.832)
+script = ExtResource("14_384e2")
+cam = NodePath("../../Camera3D")
 
 [node name="AutoEnemiesTurn" type="Node" parent="BattleManager" unique_id=1962637205 node_paths=PackedStringArray("ability_targeting")]
 script = ExtResource("11_5kl7h")
@@ -49,13 +54,15 @@ hunter_pos = Array[Vector3]([Vector3(-1, 0, 1.5), Vector3(-0.33, 0, 0.5), Vector
 enemy_pos = Array[Vector3]([Vector3(-2, 0, 0), Vector3(-0.67, 0, 0), Vector3(0.67, 0, 0), Vector3(2, 0, 0)])
 character_rotation = 16.0
 
-[node name="FocusCamera" type="Node3D" parent="BattleManager" unique_id=735091073 node_paths=PackedStringArray("camera")]
+[node name="DynamicCamera" type="Node3D" parent="BattleManager" unique_id=735091073 node_paths=PackedStringArray("camera")]
 script = ExtResource("8_62ji6")
 camera = NodePath("../../Camera3D")
 init_position = Vector3(-0.75, 2, 7.832)
 position_offset = Vector3(-0.5, 2, 7)
-y_angle = -10.0
+init_rot = Vector2(-10, 0)
+focus_rot = Vector2(-10, -10)
 lerp_weight = 3.0
+cam_grab_offset_ce = 0.005
 
 [node name="HunterPlacements" type="Node3D" parent="." unique_id=940232337]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 1, 3.802)
@@ -75,10 +82,6 @@ shape = SubResource("BoxShape3D_6sj1v")
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1979764481]
 transform = Transform3D(1, 0, 0, 0, 0.97951615, 0.20136568, 0, -0.20136568, 0.97951615, -0.75, 2, 7.832)
 fov = 70.0
-
-[node name="CursorInteract" type="Node3D" parent="Camera3D" unique_id=1686089928 node_paths=PackedStringArray("cam")]
-script = ExtResource("14_384e2")
-cam = NodePath("..")
 
 [node name="HUD" type="CanvasLayer" parent="." unique_id=2024292129]
 
@@ -103,7 +106,7 @@ offset_right = 40.0
 offset_bottom = 40.0
 mouse_filter = 2
 script = ExtResource("14_lvofu")
-cursor_interact = NodePath("../../../Camera3D/CursorInteract")
+cursor_interact = NodePath("../../../BattleManager/CursorInteract")
 update_abilities = NodePath("../UpdateAbilities")
 battle_manager = NodePath("../../../BattleManager")
 ally_targeting_color = Color(0, 1, 0, 1)

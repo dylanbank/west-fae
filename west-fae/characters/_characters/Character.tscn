@@ -4,6 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://chnlhq6y21n4n" path="res://icon.svg" id="2_32im1"]
 [ext_resource type="Script" uid="uid://d2u7att1gr05l" path="res://characters/_characters/code_blocks/selection.gd" id="2_l3wis"]
 [ext_resource type="Script" uid="uid://cm4osmh5cxy7d" path="res://characters/_characters/code_blocks/resource_bars.gd" id="2_qq5e2"]
+[ext_resource type="Script" uid="uid://confysgxdvonn" path="res://characters/_characters/code_blocks/status_icons.gd" id="2_yxtoy"]
+[ext_resource type="PackedScene" uid="uid://4p55e8fceool" path="res://hunts/battles/ui/status_icons/status_icon.tscn" id="3_4pa6q"]
 [ext_resource type="PackedScene" uid="uid://bx03l0v8f1ul0" path="res://hunts/battles/ui/resource_bars/HealthProgressBar.tscn" id="4_akeys"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_la1yr"]
@@ -14,11 +16,20 @@ viewport_path = NodePath("HealthBarSubViewport")
 [sub_resource type="ViewportTexture" id="ViewportTexture_8tn5n"]
 viewport_path = NodePath("NotifierSubViewport")
 
+[sub_resource type="ViewportTexture" id="ViewportTexture_6sj1v"]
+viewport_path = NodePath("StatusIconsSubViewport")
+
 [sub_resource type="CanvasTexture" id="CanvasTexture_l3wis"]
 
-[node name="Character" type="CharacterBody3D" unique_id=1785240785]
+[node name="Character" type="CharacterBody3D" unique_id=1785240785 node_paths=PackedStringArray("status_icon_display")]
 collision_layer = 3
 script = ExtResource("1_cqlfc")
+status_icon_display = NodePath("StatusIcons")
+
+[node name="StatusIcons" type="Node3D" parent="." unique_id=1805767177 node_paths=PackedStringArray("status_icon_container")]
+script = ExtResource("2_yxtoy")
+status_icon_container = NodePath("../StatusIconsSubViewport/HBoxContainer")
+status_node = ExtResource("3_4pa6q")
 
 [node name="Selection" type="Node3D" parent="." unique_id=839077426 node_paths=PackedStringArray("character", "notifier")]
 script = ExtResource("2_l3wis")
@@ -44,11 +55,17 @@ one_shot = true
 
 [node name="HealthBar" type="Sprite3D" parent="." unique_id=816090832]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0.2)
+alpha_cut = 2
 texture = SubResource("ViewportTexture_fa6fv")
 
 [node name="Notifier" type="Sprite3D" parent="." unique_id=725891861]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
 texture = SubResource("ViewportTexture_8tn5n")
+
+[node name="StatusDisplay" type="Sprite3D" parent="." unique_id=792122783]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0.2, 0.2)
+alpha_cut = 2
+texture = SubResource("ViewportTexture_6sj1v")
 
 [node name="HealthBarSubViewport" type="SubViewport" parent="." unique_id=1487688424]
 disable_3d = true
@@ -78,6 +95,20 @@ grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 texture = SubResource("CanvasTexture_l3wis")
+
+[node name="StatusIconsSubViewport" type="SubViewport" parent="." unique_id=1799178330]
+transparent_bg = true
+render_target_update_mode = 4
+
+[node name="HBoxContainer" type="HBoxContainer" parent="StatusIconsSubViewport" unique_id=1186491612]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -128.0
+offset_right = 120.0
+grow_vertical = 0
+size_flags_horizontal = 0
+size_flags_vertical = 8
 
 [connection signal="mouse_entered" from="." to="Selection" method="_on_character_mouse_entered"]
 [connection signal="mouse_exited" from="." to="Selection" method="_on_character_mouse_exited"]

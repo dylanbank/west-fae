@@ -8,7 +8,7 @@ class_name ResourceBars
 func _ready() -> void:
 	resource_bars.health_progress_bar.max_value = character.character_res.max_health
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	resource_bars.health_progress_bar.value = character.character_res.current_health
 	#health_bar.value = 20.0
 	

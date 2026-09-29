@@ -1,4 +1,4 @@
-extends DmgAddStatusResource
+extends OutDmgStatusResource
 class_name Pepped
 
 func add_damage(o_dmg : float) -> float:

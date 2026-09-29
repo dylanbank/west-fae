@@ -8,10 +8,11 @@
 [ext_resource type="Script" uid="uid://dhm25anvaf4to" path="res://characters/items/base_item_res.gd" id="4_a4ghl"]
 [ext_resource type="Resource" uid="uid://b6mnn7meedtyb" path="res://characters/abilities/size_up/size_up.tres" id="4_ir71c"]
 [ext_resource type="Resource" uid="uid://dawci3b1548hm" path="res://characters/abilities/slice/slice.tres" id="5_tgkia"]
+[ext_resource type="Resource" uid="uid://cdgb4fjwtbomg" path="res://characters/abilities/heal/heal.tres" id="6_diurh"]
 [ext_resource type="Texture2D" uid="uid://bbhipcdkjmm1e" path="res://burntpeanut.svg" id="7_ir71c"]
-[ext_resource type="Script" uid="uid://i1wy4dntu1l2" path="res://hunts/statuses/status_res.gd" id="8_qnjjc"]
 
 [resource]
+resource_local_to_scene = true
 script = ExtResource("3_1j5j0")
 name = "Harry"
 idle_sprite = ExtResource("2_gi4ot")
@@ -24,6 +25,6 @@ current_health = 100.0
 strength = 4.0
 dexterity = 10.0
 intelligence = 5.0
-equipped_abilities = [ExtResource("3_diurh"), ExtResource("5_tgkia"), ExtResource("5_tgkia"), ExtResource("4_ir71c")]
+equipped_abilities = [ExtResource("3_diurh"), ExtResource("5_tgkia"), ExtResource("4_ir71c"), ExtResource("6_diurh")]
 equipped_weapon = ExtResource("3_diurh")
 metadata/_custom_type_script = "uid://cg340kvj3ltnb"
